@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="林虹 ❤ 叶林锦 · 订婚盛典，红色喜柬，诚邀亲友">
+    <title>林虹 & 叶林锦 · 订婚喜宴</title>
+    <!-- 引入 html2canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #8b1a1a;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.2) 2%, transparent 3%),
+                              radial-gradient(circle at 85% 70%, rgba(255, 200, 50, 0.18) 1.5%, transparent 2%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "PingFang SC", "微软雅黑", "STHeiti", "Cormorant Garamond", serif;
+            padding: 24px 16px;
+            position: relative;
+        }
+
+        /* 主卡片 —— 全红底金字风格 */
+        .engagement-card {
+            max-width: 540px;
+            width: 100%;
+            background: #c02b2b;
+            background: linear-gradient(145deg, #c72a2a, #aa1e1e);
+            border-radius: 48px 32px 56px 32px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.4), 0 0 0 3px #ffdd99 inset, 0 0 0 6px rgba(255, 215, 0, 0.3) inset;
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+
+        .card-inner {
+            padding: 36px 28px 48px;
+        }
+
+        /* 动画 */
+        @keyframes softRise {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-item {
+            opacity: 0;
+            animation: softRise 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+        }
+        .delay-1 { animation-delay: 0.05s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.35s; }
+        .delay-4 { animation-delay: 0.5s; }
+        .delay-5 { animation-delay: 0.65s; }
+        .delay-6 { animation-delay: 0.8s; }
+
+        /* 顶部纹样 金色 */
+        .top-ornament {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .double-happiness {
+            font-size: 44px;
+            letter-spacing: 16px;
+            color: #ffdf9c;
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .invitation-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(2px);
+            padding: 6px 24px;
+            border-radius: 40px;
+            font-size: 13px;
+            color: #ffefb9;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-top: 8px;
+            border: 1px solid #ffd27a;
+        }
+
+        /* 主标题 金字 */
+        .title-section {
+            text-align: center;
+            margin: 18px 0 8px;
+        }
+        .chinese-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: #ffdf9c;
+            letter-spacing: 10px;
+            font-family: "PingFang SC", "STSong", serif;
+            text-shadow: 0 2px 3px #9e2a2a;
+        }
+        .english-title {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #ffcd82;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* 新人姓名 金色 */
+        .couple-hero {
+            text-align: center;
+            margin: 28px 0 22px;
+            position: relative;
+        }
+        .names-big {
+            font-size: 48px;
+            font-weight: 800;
+            font-family: "PingFang SC", "STSong", serif;
+            color: #fff0c0;
+            letter-spacing: 4px;
+            line-height: 1.2;
+            text-shadow: 0 2px 5px #a13030;
+        }
+        .names-big span {
+            font-size: 40px;
+            margin: 0 6px;
+            color: #ffda88;
+        }
+        .ampersand {
+            font-family: "Cormorant Garamond", serif;
+            font-style: italic;
+            font-size: 46px;
+            color: #ffcd7e;
+            margin: 0 8px;
+        }
+        .love-quote {
+            font-size: 15px;
+            color: #ffecb3;
+            letter-spacing: 2px;
+            border-top: 2px solid #ffce82;
+            display: inline-block;
+            padding-top: 14px;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        /* 家长敬呈区 半透明红金 */
+        .parents-announce {
+            background: rgba(255, 235, 190, 0.12);
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 18px 20px;
+            margin: 20px 0 16px;
+            text-align: center;
+            border: 1px solid #ffcf7a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .parents-line {
+            font-size: 16px;
+            color: #fff2d0;
+            line-height: 1.65;
+            font-weight: 500;
+        }
+        .parents-line strong {
+            color: #ffeaac;
+            font-weight: 800;
+            margin: 0 3px;
+        }
+
+        /* 时间地点卡片 红底金边 */
+        .event-details {
+            background: rgba(160, 30, 30, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 24px 24px;
+            margin: 28px 0 20px;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+            border: 1px solid #ffce7a;
+        }
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .detail-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 215, 0, 0.25);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #ffeaac;
+        }
+        .detail-content {
+            flex: 1;
+        }
+        .detail-label {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #ffdd99;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .detail-value {
+            font-size: 24px;
+            font-weight: 750;
+            color: #fff3cf;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+        .date-week {
+            font-size: 16px;
+            color: #ffdd99;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+        .address-only {
+            font-size: 24px;
+            font-weight: 750;
+            color: #fff3cf;
+        }
+
+        /* 倒计时 红金 */
+        .countdown-luxury {
+            text-align: center;
+            margin: 15px 0 8px;
+        }
+        .cd-inner {
+            background: rgba(255, 220, 150, 0.15);
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+            padding: 14px 18px;
+            border: 1px solid #ffce7a;
+        }
+        .cd-title {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #ffefc0;
+            font-weight: 600;
+        }
+        .cd-digits {
+            display: flex;
+            justify-content: space-around;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .cd-block {
+            text-align: center;
+            flex: 1;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 28px;
+            padding: 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ffd58c;
+        }
+        .cd-number {
+            font-size: 30px;
+            font-weight: 800;
+            font-family: monospace;
+            color: #ffefb9;
+            line-height: 1;
+        }
+        .cd-label {
+            font-size: 12px;
+            color: #ffdfa5;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        .cd-ended {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffeaac;
+            padding: 12px;
+        }
+
+        /* 底部祝福 全红金 (无导航) */
+        .blessing-footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #ffce7a;
+        }
+        .blessing-line {
+            font-size: 16px;
+            color: #ffefc0;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* 导出按钮 */
+        .export-btn-wrapper {
+            max-width: 540px;
+            width: 100%;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .export-btn {
+            background: linear-gradient(135deg, #e6b422, #ca9510);
+            border: none;
+            border-radius: 60px;
+            padding: 14px 28px;
+            color: #631f1f;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid #ffdf9c;
+        }
+        .export-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* 花瓣容器 */
+        #petals-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        @media (max-width: 520px) {
+            .card-inner { padding: 28px 18px 40px; }
+            .names-big { font-size: 36px; }
+            .names-big span { font-size: 30px; }
+            .chinese-title { font-size: 32px; letter-spacing: 6px; }
+            .detail-value { font-size: 20px; }
+            .address-only { font-size: 20px; }
+            .cd-number { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="petals-canvas"></div>
+
+    <!-- 截图目标卡片 -->
+    <div class="engagement-card" id="invitationCard">
+        <div class="card-inner">
+            <div class="top-ornament animate-item delay-1">
+                <div class="double-happiness">囍 囍 囍</div>
+                <div class="invitation-badge">订 婚 喜 柬</div>
+            </div>
+
+            <div class="title-section animate-item delay-1">
+                <div class="chinese-title">紅 鸞 喜 宴</div>
+                <div class="english-title">ENGAGEMENT CEREMONY</div>
+            </div>
+
+            <div class="couple-hero animate-item delay-2">
+                <div class="names-big">
+                    林虹 <span class="ampersand">&</span> 叶林锦
+                </div>
+                <div class="love-quote">✦ 赤绳系定 · 白头永偕 ✦</div>
+            </div>
+
+            <div class="parents-announce animate-item delay-2">
+                <div class="parents-line">
+                    家长 <strong>蔡莲花</strong> 女士 · <strong>林庆东</strong> 先生<br>
+                    携全家敬告亲友，为爱女 <strong>林虹</strong> 与 贤婿 <strong>叶林锦</strong> 举行订婚典礼
+                </div>
+            </div>
+
+            <div class="event-details animate-item delay-3">
+                <div class="detail-row">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-content">
+                        <div class="detail-label">良辰吉日</div>
+                        <div class="detail-value">
+                            2025年05月01日 12:00
+                            <span class="date-week" id="weekdayShow">(星期四)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">🏮</div>
+                    <div class="detail-content">
+                        <div class="detail-label">宴 席</div>
+                        <div class="address-only">柳浪望江楼</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="countdown-luxury animate-item delay-4">
+                <div class="cd-inner">
+                    <div class="cd-title">🎈 吉 日 倒 计 时 🎈</div>
+                    <div id="countdownDisplay" class="cd-digits">
+                        <div class="cd-block"><div class="cd-number" id="cdDays">00</div><div class="cd-label">天</div></div>
+                        <div class="cd-block"><div class="cd-number" id="cdHours">00</div><div class="cd-label">时</div></div>
+                        <div class="cd-block"><div class="cd-number" id="cdMins">00</div><div class="cd-label">分</div></div>
+                        <div class="cd-block"><div class="cd-number" id="cdSecs">00</div><div class="cd-label">秒</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部祝福 (无导航，无林府叶府) -->
+            <div class="blessing-footer animate-item delay-5">
+                <div class="blessing-line">佳偶天成 · 百年好合</div>
+                <div class="blessing-line" style="font-size: 14px; margin-top: 8px;">敬备喜酌 恭迎亲友 见证盟约</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="export-btn-wrapper">
+        <button class="export-btn" id="exportImageBtn">📸 保存喜柬为图片</button>
+    </div>
+
+    <script>
+        (function() {
+            // 花瓣特效（红色/金色调）
+            const petalContainer = document.getElementById('petals-canvas');
+            const petalColors = ['#ffc49b', '#ffb87a', '#ffa559', '#ffcf8a', '#ffb347', '#ffd966', '#f0bc6e'];
+            
+            function createPetal() {
+                const petal = document.createElement('div');
+                const w = Math.random() * 12 + 7;
+                const h = w * (Math.random() * 0.7 + 1.2);
+                const rotStart = Math.random() * 360;
+                const duration = Math.random() * 6 + 4.5;
+                const delay = Math.random() * 4;
+                const color = petalColors[Math.floor(Math.random() * petalColors.length)];
+                const opacity = Math.random() * 0.6 + 0.2;
+                let borderRadiusStyle = '';
+                const type = Math.random();
+                if (type < 0.33) borderRadiusStyle = '50% 50% 50% 70% / 60% 60% 40% 40%';
+                else if (type < 0.66) borderRadiusStyle = '70% 30% 50% 50% / 40% 60% 40% 60%';
+                else borderRadiusStyle = '40% 60% 70% 30% / 50% 40% 60% 50%';
+                
+                petal.style.cssText = `
+                    position: absolute;
+                    width: ${w}px;
+                    height: ${h}px;
+                    background: ${color};
+                    border-radius: ${borderRadiusStyle};
+                    opacity: ${opacity};
+                    left: ${Math.random() * 100}%;
+                    top: -20px;
+                    transform: rotate(${rotStart}deg);
+                    animation: driftPetal ${duration}s linear ${delay}s infinite;
+                    filter: blur(0.8px);
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                `;
+                petalContainer.appendChild(petal);
+                setTimeout(() => {
+                    if(petal && petal.remove) petal.remove();
+                }, (duration + delay) * 1000 + 800);
+            }
+            
+            if (!document.querySelector('#petalKeyframeStyle')) {
+                const styleSheet = document.createElement('style');
+                styleSheet.id = 'petalKeyframeStyle';
+                styleSheet.textContent = `
+                    @keyframes driftPetal {
+                        0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
+                        40% { opacity: 0.9; }
+                        100% { transform: translateY(100vh) rotate(560deg) scale(0.85); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(styleSheet);
+            }
+            
+            let petalInterval = setInterval(() => {
+                createPetal();
+                if (Math.random() > 0.75) setTimeout(() => createPetal(), 100);
+            }, 210);
+            
+            function handleVisChange() {
+                if (document.hidden) {
+                    if (petalInterval) clearInterval(petalInterval);
+                    petalInterval = null;
+                } else {
+                    if (!petalInterval) {
+                        petalInterval = setInterval(() => {
+                            createPetal();
+                            if (Math.random() > 0.75) setTimeout(() => createPetal(), 100);
+                        }, 210);
+                    }
+                }
+            }
+            document.addEventListener('visibilitychange', handleVisChange);
+            
+            for (let i = 0; i < 24; i++) {
+                setTimeout(() => createPetal(), i * 55);
+            }
+            
+            // 倒计时 2025-05-01 12:00
+            const targetDate = new Date(2025, 4, 1, 12, 0, 0);
+            const daysElem = document.getElementById('cdDays');
+            const hoursElem = document.getElementById('cdHours');
+            const minsElem = document.getElementById('cdMins');
+            const secsElem = document.getElementById('cdSecs');
+            const countdownContainer = document.getElementById('countdownDisplay');
+            
+            function updateTimer() {
+                const now = new Date().getTime();
+                const distance = targetDate.getTime() - now;
+                
+                if (distance <= 0) {
+                    if (countdownContainer) {
+                        countdownContainer.innerHTML = `<div class="cd-ended">❤️ 吉日已至 喜结良缘 ❤️</div>`;
+                    }
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+                const minutes = Math.floor((distance % (60 * 60 * 1000)) / (60 * 1000));
+                const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+                
+                if (daysElem) daysElem.innerText = days < 10 ? '0' + days : days;
+                if (hoursElem) hoursElem.innerText = hours < 10 ? '0' + hours : hours;
+                if (minsElem) minsElem.innerText = minutes < 10 ? '0' + minutes : minutes;
+                if (secsElem) secsElem.innerText = seconds < 10 ? '0' + seconds : seconds;
+            }
+            
+            function setWeekdayText() {
+                const weekdaySpan = document.getElementById('weekdayShow');
+                if (weekdaySpan) {
+                    const dateObj = new Date(2025, 4, 1);
+                    const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+                    weekdaySpan.innerText = `(${weekdays[dateObj.getDay()]})`;
+                }
+            }
+            setWeekdayText();
+            updateTimer();
+            const timerInterval = setInterval(updateTimer, 1000);
+            
+            window.addEventListener('beforeunload', () => {
+                if (petalInterval) clearInterval(petalInterval);
+                if (timerInterval) clearInterval(timerInterval);
+            });
+            
+            // 轻量涟漪 (红金反馈)
+            const card = document.querySelector('.engagement-card');
+            if (card) {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.nav-btn')) return;
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.backgroundColor = 'rgba(255, 215, 0, 0.2)';
+                    ripple.style.width = '80px';
+                    ripple.style.height = '80px';
+                    ripple.style.left = `${e.clientX - card.getBoundingClientRect().left - 40}px`;
+                    ripple.style.top = `${e.clientY - card.getBoundingClientRect().top - 40}px`;
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.transition = 'transform 0.4s ease-out, opacity 0.5s';
+                    ripple.style.opacity = '0.8';
+                    ripple.style.pointerEvents = 'none';
+                    card.style.position = 'relative';
+                    card.style.overflow = 'hidden';
+                    card.appendChild(ripple);
+                    setTimeout(() => ripple.style.transform = 'scale(5)', 10);
+                    setTimeout(() => ripple.style.opacity = '0', 200);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            }
+            
+            // 导出图片功能 - 修复偏移问题：使用 scrollX/scrollY 修正，且临时移除可能影响的 transform/过渡
+            const exportBtn = document.getElementById('exportImageBtn');
+            const targetCard = document.getElementById('invitationCard');
+            
+            async function exportAsImage() {
+                if (!targetCard) return;
+                // 保存原始样式及滚动位置
+                const originalTransition = targetCard.style.transition;
+                const originalOverflow = document.body.style.overflow;
+                const scrollX = window.scrollX;
+                const scrollY = window.scrollY;
+                
+                // 临时禁用页面滚动，避免干扰
+                document.body.style.overflow = 'hidden';
+                // 固定卡片位置，确保截图时没有任何偏移
+                targetCard.style.transition = 'none';
+                
+                // 强制所有动画元素为最终态，避免渲染时未完成
+                const animatedItems = targetCard.querySelectorAll('.animate-item');
+                animatedItems.forEach(el => {
+                    el.style.animation = 'none';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+                
+                // 关键: 使用 window.scrollTo 将页面滚动到卡片位置？不需要，html2canvas 默认会基于视口绘制，但为了精确，我们可以将卡片克隆或者使用绝对定位修正。
+                // 更可靠方案：获取卡片相对于视口的位置，使用 x, y 选项。或者将卡片暂时绝对定位到 (0,0)，但会改变布局。
+                // 简单有效：使用 window.scrollTo(0, 0) 强制滚动到顶部，并计算卡片偏移量，通过选项调整。
+                // 为防止偏移，我们采用 html2canvas 的 x, y 参数（通过 window.scrollX/Y + 元素偏移）。
+                const rect = targetCard.getBoundingClientRect();
+                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                try {
+                    const canvas = await html2canvas(targetCard, {
+                        scale: 2.8,
+                        backgroundColor: '#c02b2b',
+                        useCORS: false,
+                        logging: false,
+                        allowTaint: false,
+                        // 关键修复：根据元素位置手动设置偏移，防止空白或偏移
+                        x: rect.left + scrollLeft,
+                        y: rect.top + scrollTop,
+                        width: rect.width,
+                        height: rect.height,
+                        windowWidth: document.documentElement.scrollWidth,
+                        windowHeight: document.documentElement.scrollHeight
+                    });
+                    const link = document.createElement('a');
+                    const imageData = canvas.toDataURL('image/png');
+                    link.download = '订婚喜柬_林虹_叶林锦.png';
+                    link.href = imageData;
+                    link.click();
+                } catch (error) {
+                    console.error('截图失败: ', error);
+                    alert('生成图片失败，可稍后重试');
+                } finally {
+                    // 恢复样式
+                    targetCard.style.transition = originalTransition;
+                    document.body.style.overflow = originalOverflow;
+                    animatedItems.forEach(el => {
+                        el.style.animation = '';
+                        el.style.opacity = '';
+                        el.style.transform = '';
+                    });
+                    // 恢复滚动位置
+                    window.scrollTo(scrollX, scrollY);
+                }
+            }
+            
+            if (exportBtn) {
+                exportBtn.addEventListener('click', exportAsImage);
+            }
+        })();
+    </script>
+</body>
+</html>
