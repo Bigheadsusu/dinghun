@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta property="og:title" content="林虹 💗 叶林锦 · 订婚喜宴邀请函" />
-    <meta property="og:description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！" />
-    <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/cover(1).jpg" />
-    <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/ylj.html" />
-    <meta property="og:type" content="website
-    <title>叶林锦 💗 林虹 · 订婚喜宴</title>
+    <!-- 微信/QQ 分享优化 Meta -->
+    <meta property="og:title" content="林虹 💗 叶林锦 · 订婚喜宴">
+    <meta property="og:description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！">
+    <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/cover(1).jpg">
+    <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/ylj.html">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="林虹 💗 叶林锦 · 订婚喜宴">
+    <meta itemprop="description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！">
+    <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/cover(1).jpg">
+    <title>林虹 💗 叶林锦 · 订婚喜宴</title>
     <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -616,29 +620,24 @@
                 item.style.opacity = 0.4 + Math.random() * 0.4;
                 container.appendChild(item);
                 
-                // 一段时间后移除，避免内存堆积
                 setTimeout(() => {
                     if (item.parentNode) item.remove();
                 }, 15000);
             }
             
-            // 初始化飘落
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => createFallingItem(), i * 200);
             }
-            // 持续生成
             setInterval(createFallingItem, 2000);
 
-            // ---------- 背景音乐 (修复播放问题) ----------
+            // ---------- 背景音乐 ----------
             const bgMusic = document.getElementById('bgMusic');
             const musicToggleBtn = document.getElementById('musicToggleBtn');
             const musicTextSpan = document.getElementById('musicText');
             const hintText = document.getElementById('hintText');
 
             let userHasInteracted = false;
-            let musicLoaded = false;
 
-            // 预加载音频
             bgMusic.load();
             bgMusic.volume = 0.65;
 
@@ -659,9 +658,7 @@
                         playPromise.then(() => {
                             updateMusicButton();
                             if (hintText) hintText.style.opacity = '0.6';
-                        }).catch(err => {
-                            console.warn('播放等待手势', err);
-                        });
+                        }).catch(err => {});
                     }
                 } else {
                     updateMusicButton();
@@ -681,7 +678,6 @@
                 }
             }
 
-            // 首次触摸/点击任意位置播放音乐
             function handleFirstTouchPlay(e) {
                 if (bgMusic.paused) {
                     attemptPlayMusic();
@@ -711,7 +707,7 @@
                 musicTextSpan.innerText = '音乐加载失败';
             });
 
-            // ---------- 刮刮乐逻辑 (修复点击无反应) ----------
+            // ---------- 刮刮乐逻辑 ----------
             const blessingText = document.getElementById('blessingText');
             const scratchLayer = document.getElementById('scratchLayer');
             const newScratchBtn = document.getElementById('newScratchBtn');
@@ -735,10 +731,8 @@
                 return thankYouMessages[Math.floor(Math.random() * thankYouMessages.length)];
             }
 
-            // 飘落特效 (刮开时)
             function spawnFloatingHearts(clientX, clientY) {
-                const container = cardInner;
-                const rect = container.getBoundingClientRect();
+                const rect = cardInner.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
                 
@@ -761,7 +755,6 @@
                 }
             }
 
-            // 刮开动作
             function scratchCardAction(e) {
                 if (!scratchLayer.classList.contains('hidden-layer')) {
                     scratchLayer.classList.add('hidden-layer');
@@ -786,7 +779,6 @@
                 }
             }
 
-            // 重置刮刮卡
             function resetScratchCard() {
                 scratchCard.classList.add('shake');
                 setTimeout(() => scratchCard.classList.remove('shake'), 400);
@@ -798,7 +790,6 @@
                 setTimeout(() => blessingText.style.transform = '', 100);
             }
 
-            // 绑定涂层事件 (确保可点击)
             scratchLayer.addEventListener('click', function(e) {
                 e.stopPropagation();
                 scratchCardAction(e);
@@ -813,16 +804,10 @@
                 resetScratchCard();
             });
 
-            // 初始化
             blessingText.textContent = getRandomThanks();
             scratchLayer.classList.remove('hidden-layer');
-
-            // 确保涂层在ios上可点
             scratchLayer.style.pointerEvents = 'auto';
             scratchLayer.style.cursor = 'pointer';
-
-            // 全局互动特效：点击卡片任何地方也有小星星（可选）
-            // 但不影响主要功能
         })();
     </script>
 </body>
