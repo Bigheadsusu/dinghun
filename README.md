@@ -1,6 +1,6 @@
 # 结婚喜宴邀请函 · dinghun
 
-纯静态 **中式婚礼 H5 电子邀请函**，基于开源模板 `leo-yi/reliy` 二次修改，适合直接通过微信 / QQ / 二维码分享给亲友。
+纯静态 **中式风格 · 红色喜庆** 婚礼电子邀请函（单页 HTML），无需构建、无需后端，适合直接通过微信 / QQ / 二维码分享给亲友。
 
 > 仓库地址：https://github.com/Bigheadsusu/dinghun
 > 在线预览：`https://bigheadsusu.github.io/dinghun/ylj.html`
@@ -11,14 +11,15 @@
 
 | 功能 | 说明 |
 | --- | --- |
-| 💌 中式 H5 翻页 | 10 屏竖向滑动 + 3D 翻页动画，含故宫红墙、中式屋檐、山水插画等喜庆画面 |
-| 👫 新人信息 | 封面与结尾页醒目展示 **魏永森 & 叶湄敏** |
+| 📜 单页滚动 | 封面 → 中式插画画廊 → 婚宴信息卡，一页浏览，无翻页依赖 |
+| 👫 新人信息 | 封面醒目展示 **魏永森 & 叶湄敏**，含「吾家有喜」祝福语 |
 | 📅 婚期时间 | 2026 年 10 月 1 日（农历八月廿一）星期四 12:00 午宴 |
-| 📍 宴席地点 | 永泰县长庆镇人民政府东 50 米 永泰县 |
-| 🎵 背景音乐 | 点击右上角音乐图标可播放 / 暂停 |
-| 🌸 氛围动效 | 页面切换动画、装饰性光圈闪烁、飘落感场景 |
-| 📱 移动端优化 | 竖屏全屏适配，支持触摸上滑翻页 |
-| 🔗 社交分享 | 配置 Open Graph Meta，分享时显示封面与标题 |
+| 📍 宴席地点 | 永泰县长庆镇人民政府东 50 米 永泰县（附地图导航链接） |
+| 🖼 中式插画 | 9 张红金中式插画网格展示，点击可放大查看 |
+| 🎵 背景音乐 | 点击右上角音乐按钮播放 / 暂停（自动播放被拦截时，首次点击恢复） |
+| 📱 响应式 | 移动端 2 列、桌面端 3 列画廊，均正常显示 |
+| 🔗 微信分享 | 完整 Open Graph / itemprop Meta，分享卡片显示标题、封面与摘要 |
+| 🚫 零外部依赖 | 无 CDN、无第三方库，全部 CSS / JS 内联，图片全本地加载 |
 
 ---
 
@@ -26,19 +27,12 @@
 
 ```text
 dinghun/
-├── ylj.html                    # 邀请函主页面（多屏 Swiper H5）
-├── css/
-│   ├── animate.min.css         # animate.css 动画库
-│   └── index.css               # 页面主样式
-├── js/
-│   └── jquery-3.2.1.min.js     # 模板依赖
-├── images/
-│   └── upArrow.png             # 上滑提示箭头
-├── show/                       # 模板插画与装饰素材
-│   ├── cover.jpg               # 封面底图
-│   ├── mobile_01.jpg ~ mobile_09.jpg   # 9 张场景插画
-│   ├── mobile_end.jpg          # 结尾页底图
-│   ├── remark_01.png ~ remark_06.png   # 文字装饰贴图
+├── ylj.html                    # 唯一页面（自包含 CSS/JS + 微信 Meta）
+├── show/                       # 图片素材（全部为小写扩展名，保证 GitHub Pages 可加载）
+│   ├── cover.jpg               # 封面合影相框图
+│   ├── mobile_01.jpg ~ mobile_09.jpg   # 9 张中式插画
+│   ├── mobile_end.jpg          # 婚宴信息卡背景图
+│   ├── remark_01.png ~ remark_06.png   # 插画上的文字装饰贴图
 │   └── musicon.png / musicoff.png      # 音乐开关图标
 ├── assets/
 │   ├── audio/bgm.mp3           # 背景音乐
@@ -48,7 +42,7 @@ dinghun/
 └── .gitignore
 ```
 
-> 模板 Swiper 4.5.0 与 swiper.animate 通过 **CDN** 加载，无需 npm 构建。
+> 仅保留 `ylj.html` 一个 HTML 文件；无 CDN 依赖，图片使用相对路径（`show/*.jpg`）。
 
 ---
 
@@ -77,24 +71,27 @@ python3 -m http.server 8000
 ## 自定义修改指南
 
 ### 1. 修改新人信息
-编辑 `ylj.html`，搜索并替换：
-- `魏永森 & 叶湄敏`
-- 新郎 / 新娘文案
+编辑 `ylj.html`，搜索并替换 `魏永森` / `叶湄敏`（含 `<title>`、Meta、封面与落款）。
 
-### 2. 修改日期/时间
-- 婚期：搜索 `2026.10.01`、`农历八月廿一`、`10月1日`、`12:00 午宴`
-- 星期：当前为 **星期四**，如需修改请同步替换
+### 2. 修改日期 / 时间
+搜索 `2026.10.01`、`农历八月廿一`、`10月1日`、`12:00 午宴`、`星期四` 并同步替换。
 
 ### 3. 修改宴席地点
-搜索 `永泰县长庆镇人民政府东50米` 与 `永泰县`。
+搜索 `永泰县长庆镇人民政府东50米` 与 `永泰县`；地图导航链接在 `.nav-btn` 的 `href` 中。
 
 ### 4. 替换图片
-- 封面 / 结尾背景：替换 `show/cover.jpg`、`show/mobile_end.jpg`
-- 场景插画：替换 `show/mobile_01.jpg` ~ `mobile_09.jpg`
-- 分享封面 / favicon：替换 `assets/img/og-ylj.png`
+- 封面合影：`show/cover.jpg`
+- 场景插画：`show/mobile_01.jpg` ~ `mobile_09.jpg`（画廊顺序与 `remark_*.png` 装饰对应）
+- 信息卡背景：`show/mobile_end.jpg`
+- 分享封面 / favicon：`assets/img/og-ylj.png`
+
+> ⚠️ 注意：GitHub Pages 服务器区分文件名大小写，新增图片请使用**小写扩展名**（如 `.jpg` / `.png`）。
 
 ### 5. 替换背景音乐
-替换 `assets/audio/bgm.mp3`（保持文件名，或同步修改 `ylj.html` 中 `<audio>` 的 `src`）。
+替换 `assets/audio/bgm.mp3`（保持文件名，或同步修改 `<audio>` 的 `src`）。
+
+### 6. 微信分享卡片
+已内置 `og:title / og:description / og:image / og:url` 与 `itemprop` Meta；如需自定义分享图片，替换 `assets/img/og-ylj.png` 并同步更新 `og:image` 的完整线上地址。
 
 ---
 
@@ -102,7 +99,7 @@ python3 -m http.server 8000
 
 ```bash
 git add -A
-git commit -m "重构 ylj 邀请函：采用中式翻页 H5 模板，更新新人信息"
+git commit -m "重构 ylj 邀请函：单页中式红金风格，修复图片大小写加载问题"
 git push origin main
 ```
 
@@ -110,9 +107,15 @@ git push origin main
 
 ---
 
+## 图片加载问题修复说明
+
+原页面引用 `show/mobile_01.jpg` 等小写路径，但仓库内文件实际为 `mobile_01.JPG`（大写）。本地 Windows 文件系统不区分大小写可正常显示，而 GitHub Pages（Linux）严格区分，导致**仅 `cover.jpg` 一张能加载，其余全部 404**。本次已将所有图片统一重命名为小写扩展名，并在 HTML 中验证所有引用与实际文件大小写完全一致。
+
+---
+
 ## 模板来源与声明
 
-- 翻页 H5 模板来自 GitHub 开源项目 [`leo-yi/reliy`](https://github.org/leo-yi/reliy)，基于其结构修改了新人信息、日期地点、结尾页，并移除了依赖后端的 RSVP 表单。
+- 场景插画素材来自 GitHub 开源项目 [`leo-yi/reliy`](https://github.com/leo-yi/reliy)（中式婚礼 H5 模板），已重排为单页布局。
 - 模板图片仅供示例，如需商用请确保拥有相应图片版权。
 
 ---
