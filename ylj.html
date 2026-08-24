@@ -1,963 +1,434 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta charset="utf-8">
+    <title>结婚喜宴 · 魏永森 &amp; 叶湄敏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="吾家有喜 · 魏永森 & 叶湄敏 结婚喜宴 · 2026年10月1日（农历八月廿一）12:00 午宴 · 永泰县长庆镇人民政府东50米 永泰县 · 诚挚邀请您参加我们的婚礼喜宴">
+    <meta name="theme-color" content="#c8102e">
     <!-- 微信/QQ 分享优化 Meta -->
-    <meta property="og:title" content="结婚喜宴">
-    <meta property="og:description" content="吾家有喜 · 有生之年欣喜相逢，佳期已定敬备喜筵，诚挚邀请您参加我们的婚礼喜宴。">
+    <meta property="og:title" content="结婚喜宴 · 魏永森 & 叶湄敏">
+    <meta property="og:description" content="吾家有喜 · 2026.10.01 农历八月廿一 12:00 午宴 · 永泰县长庆镇人民政府东50米 永泰县。诚挚邀请您参加我们的婚礼喜宴。">
     <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
     <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/ylj.html">
     <meta property="og:type" content="website">
-    <meta name="description" content="魏永森 与 叶湄敏 结婚喜宴邀请函 · 吾家有喜，佳期已定，敬备喜筵，诚邀您共赴婚礼喜宴。">
-    <meta name="theme-color" content="#C9A227" />
-    <!-- 唯一应用图片：og-ylj.png（同时用作 favicon 与分享图，移除其余多余图片引用） -->
-    <link rel="icon" href="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png" type="image/png" />
-    <meta itemprop="name" name="结婚喜宴">
-    <meta itemprop="description" content="吾家有喜 · 有生之年欣喜相逢，佳期已定敬备喜筵，诚挚邀请您参加我们的婚礼喜宴。">
-    <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
-    <title>吾家有喜 · 结婚喜宴</title>
-    <!-- Font Awesome 图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta itemprop="name" content="结婚喜宴 · 魏永森 & 叶湄敏">
+    <meta itemprop="description" content="吾家有喜 · 2026.10.01 农历八月廿一 12:00 午宴 · 永泰县长庆镇人民政府东50米 永泰县。">
+    <link rel="icon" href="assets/img/og-ylj.png">
+    <!-- Swiper 4.5.0 + Swiper.Animate（与 reliy 模板原 API 一致：new Swiper(...) + swiperAnimate） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@4.5.0/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/index.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* ===== 中国风字体 ===== */
-        body {
-            /* 黄金主色调 · 香槟金渐变底 */
-            background: linear-gradient(160deg, #FBEFD2 0%, #F4DEAE 55%, #ECCF92 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Songti SC', 'SimSun', '宋体', 'Noto Serif SC', 'STSong', serif;
-            padding: 14px;
-            position: relative;
-            overflow-x: hidden;
-        }
-        /* 背景金线装饰框 */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 10px;
-            border: 2px solid rgba(184, 134, 11, 0.45);
-            border-radius: 6px;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* 背景花卉平铺图案（淡金） */
-        .bg-floral {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* ===== 全局飘落特效容器 ===== */
-        #global-effects {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 5;
-            overflow: hidden;
-        }
-        .falling-item {
+        .imageRotate {
+            width: 36px;
+            height: 36px;
+            right: 14px;
+            top: 14px;
+            opacity: 0.95;
             position: absolute;
-            font-size: 20px;
-            user-select: none;
-            pointer-events: none;
-            opacity: 0.7;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
-        }
-
-        /* ===== 邀请函主卡片（象牙白底 · 双层金边 · 四角花饰） ===== */
-        .invitation {
-            max-width: 480px;
-            width: 100%;
-            background: linear-gradient(180deg, #FFFDF6 0%, #FBF2DC 100%);
-            border-radius: 18px;
-            border: 3px solid #C9A227;
-            padding: 30px 22px 32px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(123, 88, 12, 0.18);
-        }
-        /* 内层细金线框 */
-        .invitation::before {
-            content: "";
-            position: absolute;
-            inset: 8px;
-            border: 1px solid #E6C860;
-            border-radius: 12px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        /* 「囍」水印（淡金 · 中国风） */
-        .invitation::after {
-            content: "囍";
-            position: absolute;
-            top: 42%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 300px;
-            line-height: 1;
-            color: rgba(201, 162, 39,  ̶0.08);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .invitation > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* 四角花卉装饰 */
-        .corner {
-            position: absolute;
-            width: 84px;
-            height: 84px;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .corner-tl { top: 6px; left: 6px; }
-        .corner-tr { top: 6px; right: 6px; transform: scaleX(-1); }
-        .corner-bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
-        .corner-br { bottom: 6px; right: 6px; transform: scale(-1, -1); }
-        .corner svg { width: 100%; height: 100%; display: block; }
-
-        .top-ornament {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            color: #C9A227;
-        }
-        .top-ornament i {
-            font-size: 18px;
-            opacity: 0.8;
-            animation: pulse 2s infinite;
-        }
-        .top-ornament span {
-            font-size: 15px;
-            letter-spacing: 8px;
-            font-weight: 300;
-            color: #B0760E;
-        }
-        @keyframes pulse {
-            0% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { opacity: 0.5; transform: scale(1); }
-        }
-
-        /* 主题标识状态条（金色） */
-        .theme-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            background: #FBF2DC;
-            border: 1px solid #C9A227;
-            color: #9E1B1B;
-            padding: 5px 16px;
-            border-radius: 40px;
-            font-size: 14px;
-            letter-spacing: 4px;
-            font-weight: 700;
-            margin: 0 auto 14px;
-        }
-
-        /* ===== 吾家有喜 · 邀请文案标题块 ===== */
-        .invite-block {
-            text-align: center;
-            margin: 4px 0 18px;
-        }
-        .xi-title {
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: #B0760E;
-            letter-spacing: 16px;
-            margin-bottom: 12px;
-            text-indent: 16px; /* 抵消末字右侧字距，保持视觉居中 */
-        }
-        .invite-poem {
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 19px;
-            color: #8C5A2B;
-            letter-spacing: 4px;
-            line-height: 2;
-        }
-        .invite-line {
-            margin-top: 12px;
-            font-size: 16px;
-            color: #9E1B1B;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-        .invite-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 14px 0 2px;
-            color: #C9A227;
-        }
-        .invite-divider .line {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #C9A227, transparent);
-        }
-
-        /* 唯一应用图片（金边相框 · 扁平） */
-        .hero-photo {
-            width: 78%;
-            max-width: 320px;
-            aspect-ratio: 16 / 9;
-            margin: 6px auto 18px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 3px solid #C9A227;
-            background: #FBF2DC;
-        }
-        .hero-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             display: block;
+            z-index: 999;
         }
-
-        .couple-names {
-            text-align: center;
-            margin: 18px 0 16px;
-        }
-        .groom, .bride {
-            display: inline-block;
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 44px;
+        .welcome_name {
+            font-family: "KaiTi", "STKaiti", "楷体", "Microsoft JhengHei", serif;
+            font-size: 34px;
             font-weight: 700;
-            color: #9E1B1B;
-            line-height: 1.2;
-        }
-        /* 新人角色标签 + 红色圆点强调（新郎 / 新娘） */
-        .person {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .person .role {
-            display: block;
-            font-size: 14px;
+            color: #fff8e7;
             letter-spacing: 4px;
-            color: #B8860B;
-            font-weight: 600;
-            margin-bottom: 6px;
+            text-shadow: 0 0 8px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.45);
         }
-        /* 红色圆点：主题色 / 状态标识 */
-        .red-  dot {
-            display: inline-block;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #C0392B;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-        .and-sign {
-            display: inline-block;
-            font-size: 32px;
-            margin: 0 10px;
-            color: #B8860B;
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            vertical-align: middle;
-        }
-
-        /* 日期卡（象牙底 · 金边） */
-        .date-card {
-            background: #FBF2DC;
-            border-radius: 14px;
-            padding: 16px 18px;
-            margin: 20px 0 16px;
-            border: 2px solid #C9A227;
-            border-left: 6px solid #C0392B;
-        }
-        .date-row {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .gregorian {
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #9E1B1B;
-        }
-        .lunar {
-            font-size: 18px;
-            color: #fff;
-            background: #C9A227;
-            padding: 4px 14px;
-            border-radius: 40px;
-            font-weight: 600;
-        }
-        .time-info {
-            font-size: 20px;
-            margin-top: 12px;
-            font-weight: 500;
-            color: #6B4423;
-        }
-
-        /* 地点信息（象牙底 · 金边） */
-        .location-section {
-            background: #FBF2DC;
-            border-radius:  ̶14px;
-            padding: 16px 18px;
-            margin: 18px 0 20px;
-            text-align: center;
-            border: 2px solid #C9A227;
-        }
-        .venue-name {
-            font-size: 22px;
-            font-weight: 700;
-            color: #9E1B1B;
-            letter-spacing: 2px;
-        }
-        .address-detail {
-            font-size: 16px;
-            margin: 8px 0 16px;
-            color: #6B4423;
-            word-break: break-word;
-        }
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #C9A227;
-            color: #fff;
-            padding: 16px 30px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            border: 2px solid #9E1B1B;
-            width: fit-content;
-            margin: 0 auto;
-            gap: 10px;
-            letter-spacing: 4px;
-        }
-        .nav-btn:active {
-            transform: translateY(2px);
-        }
-
-        /* ===== 刮刮乐彩票游戏区（象牙底 · 金边） ===== */
-        .scratch-section {
-            background: #FBF2DC;
-            border-radius: 16px;
-            padding: 20px 16px 22px;
-            margin: 24px 0 16px;
-            border: 2px solid #C9A227;
-            text-align: center;
-        }
-        .scratch-title {
-            font-size: 22px;
-            color: #9E1B1B;
-            letter-spacing: 6px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-        .scratch-title i {
-            color: #C9A227;
-            font-size: 24px;
-        }
-
-        .scratch-card {
-            background: #FBF2DC;
-            border-radius: 14px;
-            padding: 8px;
-            margin-bottom: 18px;
-            border: 2px solid #C9A227;
-        }
-        .scratch-card.shake {
-            animation: cardShake 0.4s ease-in-out;
-        }
-        @keyframes cardShake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-6px); }
-            50% { transform: translateX(6px); }
-            75% { transform: translateX(-3px); }
-            100% { transform: translateX(0); }
-        }
-
-        .card-inner {
-            position: relative;
-            background: #F3E2B8;
-            border-radius: 10px;
-            min-height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 2px solid #C9A227;
-        }
-
-        .blessing-text {
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
+        .welcome_title {
+            font-family: "KaiTi", "STKaiti", "楷体", serif;
             font-size: 26px;
-            font-weight: 800;
-            color: #9E1B1B;
-            padding: 20px 12px;
-            text-align: center;
-            line-height: 1.4;
-            word-break: break-word;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            letter-spacing: 4px;
-            position: relative;
-            z-index: 2;
+            color: #ffd76a;
+            font-weight: 600;
+            text-shadow: 0 0 6px rgba(0,0,0,0.5);
         }
-        .blessing-text.pop {
-            transform: scale(1.2);
+        .welcome_subtitle {
+            font-family: "KaiTi", "STKaiti", "楷体", serif;
+            font-size: 15px;
+            color: #fff8e7;
+            margin-top: 6px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 6px rgba(0,0,0,0.55);
         }
-
-        /* 刮刮涂层 */
-        .scratch-layer {
+        .welcome_date {
+            font-size: 17px;
+            color: #fff8e7;
+            margin-top: 12px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 6px rgba(0,0,0,0.55);
+        }
+        .welcome_poem {
+            font-family: "KaiTi", "STKaiti", "楷体", serif;
+            font-size: 14px;
+            color: #ffe8a3;
+            margin-top: 10px;
+            letter-spacing: 3px;
+            line-height: 1.9;
+            text-shadow: 0 0 6px rgba(0,0,0,0.55);
+        }
+        /* 结尾页（替代原表单）：红金中式信息卡 */
+        .end-card {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #b0a090;
-            border-radius: 8px;
+            left: 7%;
+            right: 7%;
+            top: 9%;
+            bottom: 9%;
+            background: rgba(176, 17, 17, 0.78);
+            border: 2px solid #f0c75e;
+            border-radius: 10px;
+            color: #fff8e7;
+            text-align: center;
+            font-family: "KaiTi", "STKaiti", "楷体", "Microsoft JhengHei", serif;
+            padding: 22px 18px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            color: #faf0e0;
-            font-size: 26px;
-            font-weight: bold;
-            text-shadow: 2px  ̶2px 0 #5e4d3d;
-            border: 2px solid #8a7a6a;
-            cursor: pointer;
-            letter-spacing: 6px;
-            overflow: hidden;
-            z-index: 10;
-            pointer-events: auto;
-        }
-        .scratch-layer::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 80%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.28);
-            transform: skewX(-20deg);
-            animation: shimmer 3s infinite;
-        }
-        @keyframes shimmer {
-            0% { left: -100%; }
-            20% { left: 120%; }
-            100% { left: 120%; }
-        }
-        .scratch-layer span {
-            font-size: 16px;
-            margin-top: 8px;
-            letter-spacing: 4px;
-            background: rgba(90, 60, 40, 0.3);
-            padding: 4px 16px;
-            border-radius: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        .scratch-layer.hidden-layer {
-            display: none;
-        }
-
-        .new-scratch-btn {
-            background: #C9A227;
-            border: 2px solid #9E1B1B;
-            color: #fff;
-            font-size: 22px;
-            padding: 14px 16px;
-            border-radius: 50px;
-            width: 100%;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            backdrop-filter: blur(2px);
+        }
+        .end-card .end-xi {
+            font-size: 30px;
+            color: #f5d36a;
             letter-spacing: 6px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
-        .new-scratch-btn:active {
-            transform: translateY(2px);
+        .end-card .end-line {
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #f5d36a, transparent);
+            margin: 8px 0 14px;
         }
-        .scratch-footer {
-            margin-top: 8px;
-            color: #8C5A2B;
+        .end-card .end-poem {
             font-size: 14px;
+            color: #fff8e7;
+            line-height: 2;
+            letter-spacing: 2px;
         }
-
-        /* 音乐控制 */
-        .music-widget {
-            display: flex;
-            justify-content: center;
-            margin: 16px 0 4px;
+        .end-card .end-block {
+            margin: 8px 0;
         }
-        .music-toggle {
-            background: #C9A227;
-            border: 2px solid #9E1B1B;
-            border-radius: 50px;
-            padding: 8px 20px;
-            color: #fff;
+        .end-card .end-label {
+            font-size: 12px;
+            color: #f5d36a;
+            letter-spacing: 4px;
+            margin-bottom: 4px;
+        }
+        .end-card .end-main {
             font-size: 18px;
-            cursor: pointer;
+            color: #fff8e7;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
-        .music-toggle:active {
-            transform: translateY(2px);
+        .end-card .end-divider {
+            width: 40px;
+            height: 1px;
+            background: #f5d36a;
+            margin: 14px auto;
+            opacity: 0.6;
         }
-
-        .touch-hint {
-            font-size: 13px;
-            color: #B8860B;
+        .end-card .end-sign {
+            font-size: 18px;
+            color: #f5d36a;
+            letter-spacing: 4px;
+            margin-top: 8px;
+        }
+        .end-card .end-tip {
+            font-size: 11px;
+            color: #ffe8a3;
+            opacity: 0.8;
             margin-top: 6px;
-            text-align: center;
+            letter-spacing: 1px;
         }
-
-        /* 特效容器 */
-        .floating-heart {
-            position: absolute;
-            font-size: 20px;
-            user-select: none;
-            pointer-events: none;
-            z-index: 100;
-            animation: floatUp 1s ease-out forwards;
+        @-webkit-keyframes music_play {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(360deg); }
         }
-        @keyframes floatUp {
-            0% { opacity: 1; transform: translateY(0) scale(1); }
-            100% { opacity: 0; transform: translateY(-60px) scale(0.5); }
+        @keyframes music_play {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
-
-        @media (max-width: 400px) {
-            .invitation { padding: 22px 14px 24px; }
-            .xi-title { font-size: 38px; letter-spacing: 10px; text-indent: 10px; }
-            .groom, .bride { font-size: 34px; }
-            .person .role { font-size: 12px; letter-spacing: 2px; }
-            .theme-badge { font-size: 12px; letter-spacing: 2px; }
-            .gregorian { font-size: 24px; }
-            .blessing-text { font-size: 22px; }
-            .corner { width: 64px; height: 64px; }
-        }
+        .rotate { -webkit-animation: music_play 3s infinite linear; animation: music_play 3s infinite linear; }
     </style>
 </head>
 <body>
-    <!-- 背景花卉平铺图案 -->
-    <svg class="bg-floral" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <defs>
-            <pattern id="floral" width="92" height="92" patternUnits="userSpaceOnUse">
-                <g fill="#C9A227" opacity="0.16">
-                    <!-- 中央五瓣花 -->
-                    <g transform="translate(46 46)">
-                        <g transform="rotate(0)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(72)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(144)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(216)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(288)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <circle cx="0" cy="0" r="5" fill="#9E1B1B" opacity="0.5"/>
-                    </g>
-                    <!-- 四角小花 -->
-                    <circle cx="0" cy="0" r="3"/>
-                    <circle cx="92" cy="0" r="3"/>
-                    <circle cx="0" cy="92" r="3"/>
-                    <circle cx="92" cy="92" r="3"/>
-                </g>
-            </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#floral)"/>
-    </svg>
+<div>
+    <audio preload="auto" loop id="music_tag" src="assets/audio/bgm.mp3"></audio>
+    <img id="music_play" onclick="musicStop()" class="imageRotate rotate" src="show/musicon.png" alt="暂停音乐" title="暂停音乐">
+    <img id="music_stop" onclick="musicPlay()" class="imageRotate" src="show/musicoff.png" alt="播放音乐" title="播放音乐" style="display: none">
+</div>
 
-    <!-- 全局飘落特效层 -->
-    <div id="global-effects"></div>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
 
-    <div class="invitation">
-        <!-- 四角花卉装饰 -->
-        <div class="corner corner-tl">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22, 70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-        <div class="corner corner-tr">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22,  ̶70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-        <div class="corner corner-bl">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22, 70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-        <div class="corner corner-br">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22, 70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-
-        <div class="top-ornament">
-            <i class="fas fa-leaf"></i>
-            <span>· 良 辰 ·</span>
-            <i class="fas fa-leaf"></i>
-        </div>
-
-        <!-- 主题标识：红色圆点 + 结婚喜宴（状态 / 主题色标识） -->
-        <div style="text-align:center;">
-       
-   <div class="theme-badge"><i class="red-dot"></i>结婚喜宴</div>
-        </div>
-
-        <!-- 吾家有喜 · 邀请文案（标题块） -->
-        <div class="invite-block">
-            <div class="xi-title">吾家有喜</div>
-            <div class="invite-divider">
-                <span class="line"></span>
-                <i class="fas fa-heart"></i>
-                <span class="line"></span>
-            </div>
-            <div class="invite-poem">有生之年 · 欣喜相逢</div>
-            <div class="invite-poem">佳期已定 · 敬备喜筵</div>
-            <div class="invite-line">诚挚邀请您参加我们的婚礼喜宴</div>
-        </div>
-
-        <div class="couple-names">
-            <div class="person">
-                <span class="role"><i class="red-dot"></i>新郎</span>
-                <span class="groom">魏永森</span>
-            </div>
-            <span class="and-sign">&</span>
-            <div class="person">
-                <span class="role"><i class="red-dot"></i>新娘</span>
-                <span class="bride">叶湄敏</span>
-            </div>
-        </div>
-
-        <div class="date-card">
-            <div class="date-row">
-                <span class="gregorian">10月1日</span>
-                <span class="lunar">农历八月廿一</span>
-            </div>
-            <div class="time-info">
-                <i class="far fa-clock"></i> <i class="red-dot"></i> 星期四 · 12:00 午宴
-            </div>
-        </div>
-
-        <div class="location-section">
-            <div class="venue-name">婚礼地点</div>
-            <div class="address-detail">
-                <i class="fas fa-map-pin"></i> 永泰县长庆镇人民政府东50米 永泰县
-            </div>
-            <a href="https://surl.amap.com/cNqr72qm3lW" class="nav-btn" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-map-signs"></i> 一键导航
-            </a>
-            <div style="font-size:13px; margin-top:10px; color:#8C5A2B;">
-                <i class="fas fa-car"></i> 点击唤醒高德地图
-            </div>
-        </div>
-
-        <!-- 刮刮乐互动区 -->
-        <div class="scratch-section">
-            <div class="scratch-title">
-                <i class="fas fa-ticket-alt"></i> 喜相逢·幸运刮刮乐 <i class="fas fa-gift"></i>
-            </div>
-
-            <div class="scratch-card" id="scratchCard">
-                <div class="card-inner" id="cardInner">
-                    <div id="blessingText" class="blessing-text">🎫 感谢赴宴</div>
-                    <div id="scratchLayer" class="scratch-layer">
-                        刮开有喜<br><span>点击刮奖</span>
+        <!-- 第 1 屏 · 封面 -->
+        <div class="swiper-slide" id="cover">
+            <div class="imgbox">
+                <img src="show/cover.jpg" alt="结婚喜宴">
+                <div class="welcome">
+                    <div class="names welcome_name ani resize" style="top: 5px;" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s">
+                        魏永森 &amp; 叶湄敏
+                    </div>
+                    <div class="words">
+                        <div class="wedding welcome_title ani resize" style="top: 60px;" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.9s">
+                            吾家有喜 · 结婚喜宴
+                        </div>
+                        <div class="wedding welcome_subtitle ani resize" style="top: 105px;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.6s" swiper-animate-delay="1.2s">
+                            诚挚邀请您参加我们的婚礼喜宴
+                        </div>
+                        <div class="wedding welcome_date ani resize" style="top: 150px;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.6s" swiper-animate-delay="1.5s">
+                            2026.10.01 · 农历八月廿一 · 星期四
+                        </div>
+                        <div class="wedding welcome_poem ani resize" style="top: 200px;" swiper-animate-effect="fadeIn" swiper-animate-duration="0.8s" swiper-animate-delay="1.8s">
+                            有生之年 · 欣喜相逢<br>
+                            佳期已定 · 敬备喜筵
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <button class="new-scratch-btn" id="newScratchBtn">
-                <i class="fas fa-redo-alt"></i> 再刮一张
-            </button>
-            <div class="scratch-footer">
-                <i class="fas fa-hand-holding-heart"></i> 每刮一次 · 谢意满怀
+        <!-- 第 2~10 屏 · 九张中式插画（reliy 模板原图） -->
+        <div class="swiper-slide" id="page1">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_01.jpg" alt="">
+                <div class="circle" style="width: 150px; height: 150px; top: 20px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle" style="width: 100px; height: 100px; top: 120px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 220px; right: 35px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="circle" style="width: 150px; height: 150px; bottom: 20px; left: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_01.png" alt="X年之恋 情定终身">
+                </div>
             </div>
         </div>
 
-        <!-- 音乐控制 -->
-        <div class="music-widget">
-            <button id="musicToggleBtn" class="music-toggle" aria-label="播放或暂停背景音乐">
-                <i class="fas fa-music" id="musicIcon"></i> <span id="musicText">播放音乐</span>
-            </button>
-        </div>
-        <div class="touch-hint" id="hintText">
-            <i class="far fa-hand-pointer"></i> 轻触页面任意处播放喜乐
+        <div class="swiper-slide" id="page2">
+            <div class="imgbox">
+                <img class="qzin" src="show/mobile_02.jpg" alt="">
+                <div class="circle" style="width: 150px; height: 150px; top: 20px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_03.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
         </div>
 
-        <audio id="bgMusic" loop preload="auto" src="https://bigheadsusu.github.io/dinghun/assets/audio/bgm.mp3"></audio>
+        <div class="swiper-slide" id="page3">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_03.jpg" alt="">
+                <div class="circle" style="width: 150px; height: 150px; top: 50px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_02.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" id="page4">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_04.jpg" alt="">
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle" style="width: 100px; height: 100px; top: 120px; left: 5px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="circle" style="width: 150px; height: 150px; bottom: 20px; left: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_04.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" id="page5">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_05.jpg" alt="紫禁城">
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle" style="width: 100px; height: 100px; top: 120px; left: 5px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="circle" style="width: 150px; height: 150px; bottom: 20px; left: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_05.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" id="page6">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_06.jpg" alt="">
+                <div class="circle" style="width: 150px; height: 150px; top: 20px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle" style="width: 100px; height: 100px; top: 120px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 220px; right: 35px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="circle" style="width: 150px; height: 150px; bottom: 20px; left: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_06.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" id="page7">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_07.jpg" alt="">
+                <div class="circle" style="width: 150px; height: 150px; top: 50px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_04.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" id="page8">
+            <div class="imgbox">
+                <img class="qzin" src="show/mobile_08.jpg" alt="中式红墙">
+                <div class="circle" style="width: 150px; height: 150px; top: 20px; left: 5px;"></div>
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_05.png" style="height: 150px;width:150px;display: inline-block;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" id="page9">
+            <div class="imgbox">
+                <img class="xzAni" src="show/mobile_09.jpg" alt="">
+                <div class="circle fast" style="width: 100px; height: 100px; top: 120px; right: 5px;"></div>
+                <div class="circle" style="width: 100px; height: 100px; top: 120px; left: 5px;"></div>
+                <div class="circle fast" style="width: 120px; height: 120px; top: 320px; left: 15px;"></div>
+                <div class="circle" style="width: 150px; height: 150px; bottom: 20px; left: 5px;"></div>
+                <div class="txtwarper ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.6s">
+                    <img src="show/remark_01.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 11 屏 · 结尾页（替代原表单）：红金中式信息卡 -->
+        <div class="swiper-slide" id="back_cover">
+            <div class="imgbox">
+                <img src="show/mobile_end.jpg" alt="">
+                <div class="end-card">
+                    <div class="end-xi">囍</div>
+                    <div class="end-line"></div>
+                    <div class="end-poem">
+                        有生之年 · 欣喜相逢<br>
+                        佳期已定 · 敬备喜筵
+                    </div>
+                    <div class="end-line"></div>
+
+                    <div class="end-block">
+                        <div class="end-label">婚 宴 时 间</div>
+                        <div class="end-main">2026年10月1日 星期四</div>
+                        <div class="end-main">中午 12:00 午宴</div>
+                    </div>
+
+                    <div class="end-divider"></div>
+
+                    <div class="end-block">
+                        <div class="end-label">婚 宴 地 点</div>
+                        <div class="end-main">永泰县长庆镇人民政府东50米</div>
+                        <div class="end-main">永泰县</div>
+                    </div>
+
+                    <div class="end-divider"></div>
+
+                    <div class="end-sign">魏永森 &amp; 叶湄敏 · 敬邀</div>
+                    <div class="end-tip">期待您的光临 · 共证良缘</div>
+                </div>
+            </div>
+        </div>
+
     </div>
+    <img src="images/upArrow.png" id="array" class="resize" alt="上滑翻页">
+</div>
 
-    <script>
-        (function() {
-            // ---------- 全局飘落特效 ----------
-            function createFallingItem() {
-                const container = document.getElementById('global-effects');
-                const symbols = ['🌸', '✨', '🧧', '❤️', '🎉', '🍃', '🌟', '🪷'];
-                const item = document.createElement('div');
-                item.className = 'falling-item';
-                item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                item.style.left = Math.random() * 100 + '%';
-                item.style.fontSize = (14 + Math.floor(Math.random() * 24)) + 'px';
-                item.style.animationDuration = (6 + Math.random() * 8) + 's';
-                item.style.animationDelay = Math.random() * 5 + 's';
-                item.style.opacity = 0.4 + Math.random() * 0.4;
-                container.appendChild(item);
-
-                setTimeout(() => {
-                    if (item.parentNode) item.remove();
-                }, 15000);
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@4.5.0/dist/js/swiper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/shinchanZ/swiper-animate@master/swiper.animate.min.js"></script>
+<script>
+    scaleW = window.innerWidth / 320;
+    scaleH = window.innerHeight / 480;
+    let resize = document.querySelectorAll('.resize');
+    for (let j = 0; j < resize.length; j++) {
+        if (resize[j].style.width)  resize[j].style.width  = parseInt(resize[j].style.width)  * scaleW + 'px';
+        if (resize[j].style.height) resize[j].style.height = parseInt(resize[j].style.height) * scaleH + 'px';
+        if (resize[j].style.top)    resize[j].style.top    = parseInt(resize[j].style.top)    * scaleH + 'px';
+        if (resize[j].style.left)   resize[j].style.left   = parseInt(resize[j].style.left)   * scaleW + 'px';
+    }
+    let mySwiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        mousewheelControl: true,
+        loop: false,
+        speed: 1200,
+        zoom: true,
+        pagination: '.swiper-pagination',
+        paginationType: 'progress',
+        onInit: function (swiper) {
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function (swiper) {
+            swiperAnimate(swiper);
+        },
+        onTransitionEnd: function (swiper) {
+            swiperAnimate(swiper);
+        },
+        watchSlidesProgress: true,
+        onProgress: function (swiper) {
+            for (let i = 0; i < swiper.slides.length; i++) {
+                let slide = swiper.slides[i];
+                let progress = slide.progress;
+                let translate = progress * swiper.height / 4;
+                let scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+                slide.style.opacity = 1 - Math.min(Math.abs(progress / 2), 0.5);
+                let es = slide.style;
+                es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform =
+                    'translate3d(0,' + translate + 'px,-' + translate + 'px) scaleY(' + scale + ')';
             }
-
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => createFallingItem(), i * 200);
+        },
+        onSetTransition: function (swiper, speed) {
+            for (let i = 0, es; i < swiper.slides.length; i++) {
+                es = swiper.slides[i].style;
+                es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration =
+                    es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
             }
-            setInterval(createFallingItem, 2000);
+        },
+    });
 
-            // ---------- 背景音乐 ----------
-            const bgMusic = document.getElementById('bgMusic');
-            const musicToggleBtn = document.getElementById('musicToggleBtn');
-            const musicTextSpan = document.getElementById('musicText');
-            const musicIconSpan = document.getElementById('musicIcon');
-            const hintText = document.getElementById('hintText');
+    function musicPlay() {
+        document.getElementById('music_stop').style.display = 'none';
+        document.getElementById('music_play').style.display = '';
+        var a = document.getElementById('music_tag');
+        a && a.play();
+    }
+    function musicStop() {
+        document.getElementById('music_stop').style.display = '';
+        document.getElementById('music_play').style.display = 'none';
+        var a = document.getElementById('music_tag');
+        a && a.pause();
+    }
 
-            let userHasInteracted = false;
-
-            bgMusic.load();
-            bgMusic.volume = 0.65;
-
-            function updateMusicButton() {
-                const playing = !bgMusic.paused;
-                musicTextSpan.textContent = playing ? '暂停音乐' : '播放音乐';
-                musicIconSpan.className = playing ? 'fas fa-volume-up' : 'fas fa-music';
-            }
-
-            function attemptPlayMusic() {
-                if (bgMusic.paused) {
-                    const playPromise = bgMusic.play();
-                    if (playPromise !== undefined) {
-                        playPromise.then(() => {
-                            updateMusicButton();
-                            if (hintText) hintText.style.opacity = '0.6';
-                        }).catch(err => {});
-                    }
-                } else {
-                    updateMusicButton();
-                }
-            }
-
-            function pauseMusic() {
-                bgMusic.pause();
-                updateMusicButton();
-            }
-
-            function toggleMusic() {
-                if (bgMusic.paused) {
-                    attemptPlayMusic();
-                } else {
-                    pauseMusic();
-                }
-            }
-
-            function handleFirstTouchPlay(e) {
-                if (bgMusic.paused) {
-                    attemptPlayMusic();
-                }
-                userHasInteracted = true;
-                document.removeEventListener('touchstart', handleFirstTouchPlay);
-                document.removeEventListener('click', handleFirstTouchPlay);
-                if (hintText) {
-                    hintText.innerHTML = '<i class="fas fa-check-circle"></i> 喜乐相伴，刮出谢意';
-                }
-            }
-
-            document.addEventListener('touchstart', handleFirstTouchPlay, { passive: true });
-            document.addEventListener('click', handleFirstTouchPlay);
-
-            musicToggleBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleMusic();
-                if (!userHasInteracted) {
-                    handleFirstTouchPlay(e);
-                }
+    // 尝试自动播放；被浏览器拦截时等待首次用户交互
+    $(document).ready(function() {
+        var audio = document.getElementById('music_tag');
+        if (!audio) return;
+        var p = audio.play();
+        if (p && p.catch) {
+            p.catch(function() {
+                var once = function() {
+                    audio.play();
+                    document.removeEventListener('touchstart', once);
+                    document.removeEventListener('click', once);
+                };
+                document.addEventListener('touchstart', once, { passive: true });
+                document.addEventListener('click', once, { once: true });
             });
-
-            bgMusic.addEventListener('play', updateMusicButton);
-            bgMusic.addEventListener('pause', updateMusicButton);
-            bgMusic.addEventListener('error', () => {
-                musicTextSpan.innerText = '音乐加载失败';
-            });
-
-            // ---------- 刮刮乐逻辑 ----------
-            const blessingText = document.getElementById('blessingText');
-            const scratchLayer = document.getElementById('scratchLayer');
-            const newScratchBtn = document.getElementById('newScratchBtn');
-            const scratchCard = document.getElementById('scratchCard');
-            const cardInner = document.getElementById('cardInner');
-
-            const thankYouMessages = [
-                "🌸 承蒙厚爱 · 莅临见证",
-                "🎉 拨冗赴宴 · 喜气同沾",
-                "💖 高朋满座 · 蓬荜生辉",
-                "🥂 感谢光临 · 情意深重",
-                "✨ 劳步远至 · 铭感五内",
-                "🏮 亲友齐聚 · 喜上添喜",
-                "🍊 盛情赴约 · 福泽绵长",
-                "🌟 贵宾盈门 · 良缘增辉",
-                "🪷 如约而至 · 温暖相随",
-                "🎋 幸甚至哉 · 谢君莅临"
-            ];
-
-            function getRandomThanks() {
-                return thankYouMessages[Math.floor(Math.random() * thankYouMessages.length)];
-            }
-
-            function spawnFloatingHearts(clientX, clientY) {
-                const rect = cardInner.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-  ̶              const centerY = rect.top + rect.height / 2;
-
-                const symbols = ['❤️', '🧧', '✨', '🎉', '🌸', '🍀'];
-                const count = 10;
-
-                for (let i = 0; i < count; i++) {
-                    const heart = document.createElement('div');
-                    heart.className = 'floating-heart';
-                    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                    heart.style.left = (centerX + (Math.random() - 0.5) * 120) + 'px';
-                    heart.style.top = (centerY + (Math.random() - 0.5) * 100) + 'px';
-                    heart.style.fontSize = (16 + Math.floor(Math.random() * 20)) + 'px';
-                    heart.style.animation = `floatUp ${0.8 + Math.random() * 0.6}s ease-out forwards`;
-                    document.body.appendChild(heart);
-
-                    setTimeout(() => {
-                        if (heart.parentNode) heart.remove();
-                    }, 1500);
-                }
-            }
-
-            function scratchCardAction(e) {
-                if (!scratchLayer.classList.contains('hidden-layer')) {
-                    scratchLayer.classList.add('hidden-layer');
-
-                    blessingText.classList.add('pop');
-                    setTimeout(() => blessingText.classList.remove('pop'), 300);
-
-                    if (navigator.vibrate) navigator.vibrate(20);
-
-                    let clientX, clientY;
-                    if (e && e.touches) {
-                        clientX = e.touches[0].clientX;
-                        clientY = e.touches[0].clientY;
-                    } else if (e) {
-                        clientX = e.clientX;
-                        clientY = e.clientY;
-                    }
-                    spawnFloatingHearts(clientX, clientY);
-                }
-            }
-
-            function resetScratchCard() {
-                scratchCard.classList.add('shake');
-                setTimeout(() => scratchCard.classList.remove('shake'), 400);
-
-                blessingText.textContent = getRandomThanks();
-                scratchLayer.classList.remove('hidden-layer');
-
-                blessingText.style.transform = 'scale(0.95)';
-                setTimeout(() => blessingText.style.transform = '', 100);
-            }
-
-            scratchLayer.addEventListener('click', function(e) {
-                e.stopPropagation();
-                scratchCardAction(e);
-            });
-            scratchLayer.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                scratchCardAction(e);
-            }, { passive: false });
-
-            newScratchBtn.addEventListener('click', function() {
-                resetScratchCard();
-            });
-
-            blessingText.textContent = getRandomThanks();
-            scratchLayer.classList.remove('hidden-layer');
-            scratchLayer.style.pointerEvents = 'auto';
-            scratchLayer.style.cursor = 'pointer';
-        })();
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
