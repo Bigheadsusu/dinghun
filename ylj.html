@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <!-- 微信/QQ 分享优化 Meta -->
-    <meta property="og:title" content="结婚宴席">
-    <meta property="og:description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！">
+    <meta property="og:title" content="结婚喜宴">
+    <meta property="og:description" content="吾家有喜 · 有生之年欣喜相逢，佳期已定敬备喜筵，诚挚邀请您参加我们的婚礼喜宴。">
     <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
     <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/ylj.html">
     <meta property="og:type" content="website">
-    <meta name="description" content="魏永森 与 叶湄敏 结婚宴席邀请函 · 赤绳系定，白头永偕，诚邀您见证我们的幸福时刻。">
-    <meta name="theme-color" content="#7a2e2e" />
-    <link rel="icon" href="https://bigheadsusu.github.io/dinghun/assets/img/cover.jpg" type="image/jpeg" />
-    <meta itemprop="name" content="结婚宴席">
-    <meta itemprop="description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！">
-    <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/assets/img/cover.jpg">
-    <title>结婚宴席</title>
+    <meta name="description" content="魏永森 与 叶湄敏 结婚喜宴邀请函 · 吾家有喜，佳期已定，敬备喜筵，诚邀您共赴婚礼喜宴。">
+    <meta name="theme-color" content="#c8102e" />
+    <!-- 唯一应用图片：og-ylj.png（同时用作 favicon 与分享图，移除其余多余图片引用） -->
+    <link rel="icon" href="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png" type="image/png" />
+    <meta itemprop="name" content="结婚喜宴">
+    <meta itemprop="description" content="吾家有喜 · 有生之年欣喜相逢，佳期已定敬备喜筵，诚挚邀请您参加我们的婚礼喜宴。">
+    <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
+    <title>结婚喜宴</title>
     <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -25,17 +26,28 @@
             box-sizing: border-box;
         }
 
+        /* ===== 中国风字体 ===== */
         body {
-            background: #7a2e2e;
-            background-image: radial-gradient(circle at 20% 30%, #a04e4e, #5e1e1e);
+            /* 纯红背景 · 扁平化 */
+            background: #c8102e;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Times New Roman', '宋体', 'Songti SC', 'Noto Serif SC', serif;
-            padding: 12px;
+            font-family: 'Songti SC', 'SimSun', '宋体', 'Noto Serif SC', 'STSong', serif;
+            padding: 14px;
             position: relative;
             overflow-x: hidden;
+        }
+        /* 视口金线装饰框（扁平） */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 10px;
+            border: 2px solid rgba(230, 180, 34, 0.55);
+            border-radius: 6px;
+            pointer-events: none;
+            z-index: 1;
         }
 
         /* ===== 全局飘落特效容器 ===== */
@@ -62,21 +74,44 @@
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
         }
 
+        /* ===== 邀请函主卡片（扁平 · 金边双线） ===== */
         .invitation {
             max-width: 480px;
             width: 100%;
-            background: #fef6e8;
-            background: linear-gradient(145deg, #fff7eb 0%, #faeedb 100%);
-            border-radius: 48px 48px 40px 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px #dbb88c inset, 0 0 0 3px #f3e1c8 inset;
+            background: #b11a1a;
+            border-radius: 18px;
+            border: 3px solid #e6b422;
             padding: 28px 22px 32px;
             position: relative;
-            border: 1px solid #c9aa7b;
             z-index: 10;
-            transition: box-shadow 0.3s;
         }
-        .invitation:hover {
-            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35), 0 0 0 1px #dbb88c inset, 0 0 0 3px #f3e1c8 inset, 0 0 20px #f0c0a0;
+        /* 内层细金线框 */
+        .invitation::before {
+            content: "";
+            position: absolute;
+            inset: 7px;
+            border: 1px solid #e6b422;
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* 「囍」水印 */
+        .invitation::after {
+            content: "囍";
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
+            font-size: 300px;
+            line-height: 1;
+            color: rgba(200, 16, 46, 0.06);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .invitation > * {
+            position: relative;
+            z-index: 1;
         }
 
         .top-ornament {
@@ -84,7 +119,7 @@
             justify-content: center;
             gap: 12px;
             margin-bottom: 16px;
-            color: #b34e4e;
+            color: #f4d03f;
         }
         .top-ornament i {
             font-size: 20px;
@@ -95,7 +130,7 @@
             font-size: 16px;
             letter-spacing: 8px;
             font-weight: 300;
-            color: #a0522d;
+            color: #f4d03f;
         }
         @keyframes pulse {
             0% { opacity: 0.5; transform: scale(1); }
@@ -108,21 +143,39 @@
             margin-bottom: 12px;
         }
         .title-main h2 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #942828;
-            letter-spacing: 10px;
-            text-shadow: 2px 2px 0 #f0d5b0;
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #f4d03f;
+            letter-spacing: 12px;
             margin-bottom: 4px;
         }
         .title-main .en-sub {
             font-size: 12px;
             letter-spacing: 4px;
-            color: #b37b5e;
+            color: #b8860b;
             text-transform: uppercase;
-            border-top: 1px solid #dbb88c;
+            border-top: 1px solid #e6b422;
             display: inline-block;
             padding-top: 6px;
+        }
+
+        /* 唯一应用图片（金边相框 · 扁平） */
+        .hero-photo {
+            width: 78%;
+            max-width: 320px;
+            aspect-ratio: 16 / 9;
+            margin: 6px auto 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #e6b422;
+            background: #b11a1a;
+        }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .couple-names {
@@ -131,10 +184,10 @@
         }
         .groom, .bride {
             display: inline-block;
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 44px;
             font-weight: 700;
-            color: #5d2e2e;
-            text-shadow: 1px 1px 0 #ebd5bc;
+            color: #fff3d6;
             line-height: 1.2;
         }
         /* 新人角色标签 + 红色圆点强调（新郎 / 新娘） */
@@ -146,7 +199,7 @@
             display: block;
             font-size: 14px;
             letter-spacing: 4px;
-            color: #b1624b;
+            color: #f3d9b0;
             font-weight: 600;
             margin-bottom: 6px;
         }
@@ -156,8 +209,7 @@
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background: #c0392b;
-            box-shadow: 0 0 6px rgba(192, 57, 43, 0.55);
+            background: #e63329;
             margin-right: 5px;
             vertical-align: middle;
         }
@@ -167,9 +219,9 @@
             align-items: center;
             justify-content: center;
             gap: 7px;
-            background: rgba(192, 57, 43, 0.10);
-            border: 1px solid #c0392b;
-            color: #a03434;
+            background: transparent;
+            border: 1px solid #f4d03f;
+            color: #f4d03f;
             padding: 5px 16px;
             border-radius: 40px;
             font-size: 14px;
@@ -181,40 +233,59 @@
             display: inline-block;
             font-size: 32px;
             margin: 0 10px;
-            color: #b16a4b;
-            font-family: 'Times New Roman', serif;
+            color: #b8860b;
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             vertical-align: middle;
         }
 
-        /* 新人敬邀文案 */
+        /* 新人敬邀文案（扁平红底金边） */
         .announcement {
             text-align: center;
             margin: 8px 0 20px;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #3d2b1c;
-            background: rgba(235, 210, 180, 0.3);
-            padding: 18px 10px;
-            border-radius: 40px;
+            padding: 22px 16px;
+            border-radius: 14px;
+            background: #b11a1a;
+            border: 2px solid #e6b422;
+            color: #fbf3e4;
+        }
+        .announcement .xi-block {
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: #f4d03f;
+            letter-spacing: 12px;
+            margin-bottom: 12px;
+        }
+        .announcement .poem {
+            font-size: 17px;
+            letter-spacing: 3px;
+            color: #fbf3e4;
+            line-height: 2;
         }
         .announcement .main-invite {
-            font-size: 22px;
-            font-weight: 600;
-            color: #a03434;
-            margin-bottom: 6px;
+            font-size: 19px;
+            font-weight: 700;
+            color: #f4d03f;
+            margin: 14px 0 8px;
+            letter-spacing: 2px;
         }
-        .announcement .couple-line {
-            font-size: 20px;
-            margin: 10px 0 6px;
+        /* 姓名仅保留一处（主区 couple-names），此处不再重复展示 */
+        .announcement .sub-note {
+            font-size: 14px;
+            color: #f3d9b0;
+            opacity: 0.92;
+            margin-top: 8px;
+            letter-spacing: 2px;
         }
 
+        /* 日期卡（扁平红底金边） */
         .date-card {
-            background: #fff2e2;
-            border-radius: 30px;
+            background: #b11a1a;
+            border-radius: 14px;
             padding: 16px 18px;
             margin: 20px 0 16px;
-            border-left: 6px solid #bc6c4b;
-            box-shadow: 0 6px 0 #c7a27b, 0 10px 20px -5px rgba(100, 40, 20, 0.2);
+            border: 2px solid #e6b422;
+            border-left: 6px solid #e6b422;
         }
         .date-row {
             display: flex;
@@ -224,80 +295,80 @@
             flex-wrap: wrap;
         }
         .gregorian {
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 28px;
             font-weight: 700;
-            color: #642828;
+            color: #f4d03f;
         }
         .lunar {
-            font-size: 20px;
-            color: #7c5a42;
-            background: #f3e1cf;
+            font-size: 18px;
+            color: #b11a1a;
+            background: #f4d03f;
             padding: 4px 14px;
             border-radius: 40px;
+            font-weight: 600;
         }
         .time-info {
             font-size: 20px;
             margin-top: 12px;
             font-weight: 500;
-            color: #3e2c1c;
+            color: #fbf3e4;
         }
 
+        /* 地点信息（扁平红底金边） */
         .location-section {
-            background: #ecdccc;
-            border-radius: 28px;
+            background: #b11a1a;
+            border-radius: 14px;
             padding: 16px 18px;
             margin: 18px 0 20px;
             text-align: center;
+            border: 2px solid #e6b422;
         }
         .venue-name {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            color: #542e1e;
+            color: #f4d03f;
             letter-spacing: 2px;
         }
         .address-detail {
             font-size: 16px;
             margin: 8px 0 16px;
-            color: #4d3827;
+            color: #fbf3e4;
             word-break: break-word;
         }
         .nav-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #b1624b;
-            color: white;
+            background: #e6b422;
+            color: #8c1414;
             padding: 16px 30px;
-            border-radius: 60px;
+            border-radius: 50px;
             font-size: 20px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 8px 0 #643e2e, 0 4px 12px rgba(0,0,0,0.2);
-            transition: 0.1s;
-            border: 1px solid #e2b695;
+            border: 2px solid #fbf3e4;
             width: fit-content;
             margin: 0 auto;
             gap: 10px;
             letter-spacing: 4px;
         }
         .nav-btn:active {
-            transform: translateY(5px);
-            box-shadow: 0 3px 0 #643e2e, 0 4px 10px rgba(0,0,0,0.15);
+            transform: translateY(2px);
         }
 
-        /* ===== 刮刮乐彩票游戏区 ===== */
+        /* ===== 刮刮乐彩票游戏区（扁平红底金边） ===== */
         .scratch-section {
-            background: #e7d3bd;
-            border-radius: 40px;
+            background: #b11a1a;
+            border-radius: 16px;
             padding: 20px 16px 22px;
             margin: 24px 0 16px;
-            box-shadow: inset 0 2px 6px #cfb79b, 0 8px 0 #a58364;
-            border: 1px solid #c2a07e;
+            border: 2px solid #e6b422;
             text-align: center;
         }
         .scratch-title {
             font-size: 22px;
-            color: #632e1e;
+            color: #f4d03f;
             letter-spacing: 6px;
             margin-bottom: 12px;
             display: flex;
@@ -307,18 +378,16 @@
             font-weight: 600;
         }
         .scratch-title i {
-            color: #c2492e;
+            color: #f4d03f;
             font-size: 24px;
         }
-        
+
         .scratch-card {
-            background: #fcf3e0;
-            border-radius: 24px;
+            background: #b11a1a;
+            border-radius: 14px;
             padding: 8px;
-            box-shadow: 0 6px 0 #b28b6a, 0 8px 16px rgba(0,0,0,0.1);
             margin-bottom: 18px;
-            border: 2px solid #d6b595;
-            transition: box-shadow 0.2s, transform 0.2s;
+            border: 2px solid #e6b422;
         }
         .scratch-card.shake {
             animation: cardShake 0.4s ease-in-out;
@@ -333,27 +402,26 @@
 
         .card-inner {
             position: relative;
-            background: #f7e7d4;
-            border-radius: 18px;
+            background: #a01717;
+            border-radius: 10px;
             min-height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: inset 0 0 0 2px #fff1e2;
+            border: 2px solid #e6b422;
         }
 
         .blessing-text {
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 26px;
             font-weight: 800;
-            color: #9f3e28;
-            font-family: 'KaiTi', '楷体', serif;
+            color: #f4d03f;
             padding: 20px 12px;
             text-align: center;
             line-height: 1.4;
             word-break: break-word;
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            text-shadow: 2px 2px 0 #f0dbc8;
             letter-spacing: 4px;
             position: relative;
             z-index: 2;
@@ -370,8 +438,7 @@
             width: 100%;
             height: 100%;
             background: #b0a090;
-            background-image: repeating-linear-gradient(45deg, #9c897a 0px, #9c897a 2px, #c4b2a0 2px, #c4b2a0 8px);
-            border-radius: 16px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -379,13 +446,10 @@
             color: #faf0e0;
             font-size: 26px;
             font-weight: bold;
-            text-shadow: 3px 3px 0 #5e4d3d;
-            box-shadow: inset 0 0 0 3px #e9cfb4, 0 0 0 2px #b69878;
+            text-shadow: 2px 2px 0 #5e4d3d;
+            border: 2px solid #8a7a6a;
             cursor: pointer;
-            transition: 0.15s;
-            border: 1px solid #ead5be;
             letter-spacing: 6px;
-            backdrop-filter: blur(1px);
             overflow: hidden;
             z-index: 10;
             pointer-events: auto;
@@ -397,7 +461,7 @@
             left: -100%;
             width: 80%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background: rgba(255, 255, 255, 0.28);
             transform: skewX(-20deg);
             animation: shimmer 3s infinite;
         }
@@ -421,18 +485,15 @@
         }
 
         .new-scratch-btn {
-            background: #b45f4a;
-            border: none;
-            color: white;
+            background: #e6b422;
+            border: 2px solid #fbf3e4;
+            color: #8c1414;
             font-size: 22px;
             padding: 14px 16px;
-            border-radius: 60px;
+            border-radius: 50px;
             width: 100%;
             font-weight: bold;
-            box-shadow: 0 6px 0 #6e3c2e, 0 2px 10px rgba(0,0,0,0.2);
             cursor: pointer;
-            border: 1px solid #e3b79e;
-            transition: 0.05s linear;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -440,12 +501,11 @@
             letter-spacing: 6px;
         }
         .new-scratch-btn:active {
-            transform: translateY(5px);
-            box-shadow: 0 1px 0 #6e3c2e, 0 4px 8px rgba(0,0,0,0.15);
+            transform: translateY(2px);
         }
         .scratch-footer {
             margin-top: 8px;
-            color: #7a5d48;
+            color: #f3d9b0;
             font-size: 14px;
         }
 
@@ -456,52 +516,28 @@
             margin: 16px 0 4px;
         }
         .music-toggle {
-            background: #dbbd9d;
-            border: none;
+            background: #b11a1a;
+            border: 2px solid #e6b422;
             border-radius: 50px;
             padding: 8px 20px;
-            color: #432918;
+            color: #fbf3e4;
             font-size: 18px;
-            box-shadow: 0 3px 0 #9b7b62;
             cursor: pointer;
-            border: 1px solid #f0dcc8;
         }
         .music-toggle:active {
-            transform: translateY(3px);
-            box-shadow: none;
+            transform: translateY(2px);
         }
 
         .touch-hint {
             font-size: 13px;
-            color: #ab7a5c;
+            color: #b8860b;
             margin-top: 6px;
             text-align: center;
         }
 
-        /* 新人敬邀落款 */
-        .newlyweds-signature {
-            text-align: center;
-            margin-top: 28px;
-            border-top: 2px dashed #c7a27b;
-            padding-top: 24px;
-            color: #6e4e37;
-            font-size: 16px;
-            letter-spacing: 2px;
-        }
-        .newlyweds-signature .couple-sign {
-            font-size: 26px;
-            font-weight: bold;
-            color: #712e1d;
-            margin: 8px 0 4px;
-            font-family: 'KaiTi', '楷体', serif;
-            letter-spacing: 8px;
-        }
+        /* （已移除未使用的落款样式：页面无对应 HTML 元素） */
 
         /* 特效容器 */
-        .effect-container {
-            position: relative;
-            pointer-events: none;
-        }
         .floating-heart {
             position: absolute;
             font-size: 20px;
@@ -522,6 +558,7 @@
             .theme-badge { font-size: 12px; letter-spacing: 2px; }
             .gregorian { font-size: 24px; }
             .blessing-text { font-size: 22px; }
+            .announcement .xi-block { font-size: 28px; letter-spacing: 8px; }
         }
     </style>
 </head>
@@ -536,12 +573,17 @@
             <i class="fas fa-leaf"></i>
         </div>
 
-        <!-- 主题标识：红色圆点 + 结婚宴席（状态 / 主题色标识） -->
-        <div class="theme-badge"><i class="red-dot"></i> 结婚宴席</div>
+        <!-- 主题标识：红色圆点 + 结婚喜宴（状态 / 主题色标识） -->
+        <div class="theme-badge"><i class="red-dot"></i> 结婚喜宴</div>
 
         <div class="title-main">
-            <h2>结婚宴席</h2>
+            <h2>结婚喜宴</h2>
             <div class="en-sub">WEDDING BANQUET</div>
+        </div>
+
+        <!-- 唯一应用图片（金边相框） -->
+        <div class="hero-photo">
+            <img src="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png" alt="结婚喜宴 · 魏永森 与 叶湄敏">
         </div>
 
         <div class="couple-names">
@@ -556,14 +598,13 @@
             </div>
         </div>
 
-        <!-- 新人敬邀文案 (已删除父母相关内容) -->
+        <!-- 吾家有喜 · 敬邀文案 -->
         <div class="announcement">
-            <div class="main-invite">❤️ 诚挚邀请 ❤️</div>
-            <div class="couple-line">
-                <span>魏永森</span> 与 <span>叶湄敏</span>
-            </div>
-            <div>举行结婚典礼 · 敬备喜酌</div>
-            <div style="font-size:16px; margin-top:8px; opacity:0.8;">恭候您的光临</div>
+            <div class="xi-block">吾家有喜</div>
+            <div class="poem">有生之年 · 欣喜相逢</div>
+            <div class="poem">佳期已定 · 敬备喜筵</div>
+            <div class="main-invite">诚挚邀请您参加我们的婚礼喜宴</div>
+            <div class="sub-note">敬备喜酌 · 恭候光临</div>
         </div>
 
         <div class="date-card">
@@ -577,13 +618,14 @@
         </div>
 
         <div class="location-section">
+            <div class="venue-name">婚礼地点</div>
             <div class="address-detail">
-                <i class="fas fa-map-pin"></i> 福建省福州市永泰县野猪湾村庄
+                <i class="fas fa-map-pin"></i> 永泰县长庆镇人民政府东50米 永泰县
             </div>
             <a href="https://surl.amap.com/1JpbYke1sgfZ" class="nav-btn" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-map-signs"></i> 一键导航
             </a>
-            <div style="font-size:13px; margin-top:10px; color:#6f4f38;">
+            <div style="font-size:13px; margin-top:10px; color:#f3d9b0;">
                 <i class="fas fa-car"></i> 点击唤醒高德地图
             </div>
         </div>
@@ -639,12 +681,12 @@
                 item.style.animationDelay = Math.random() * 5 + 's';
                 item.style.opacity = 0.4 + Math.random() * 0.4;
                 container.appendChild(item);
-                
+
                 setTimeout(() => {
                     if (item.parentNode) item.remove();
                 }, 15000);
             }
-            
+
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => createFallingItem(), i * 200);
             }
@@ -709,7 +751,7 @@
 
             document.addEventListener('touchstart', handleFirstTouchPlay, { passive: true });
             document.addEventListener('click', handleFirstTouchPlay);
-            
+
             musicToggleBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 toggleMusic();
@@ -752,10 +794,10 @@
                 const rect = cardInner.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
-                
+
                 const symbols = ['❤️', '🧧', '✨', '🎉', '🌸', '🍀'];
                 const count = 10;
-                
+
                 for (let i = 0; i < count; i++) {
                     const heart = document.createElement('div');
                     heart.className = 'floating-heart';
@@ -765,7 +807,7 @@
                     heart.style.fontSize = (16 + Math.floor(Math.random() * 20)) + 'px';
                     heart.style.animation = `floatUp ${0.8 + Math.random() * 0.6}s ease-out forwards`;
                     document.body.appendChild(heart);
-                    
+
                     setTimeout(() => {
                         if (heart.parentNode) heart.remove();
                     }, 1500);
@@ -775,12 +817,12 @@
             function scratchCardAction(e) {
                 if (!scratchLayer.classList.contains('hidden-layer')) {
                     scratchLayer.classList.add('hidden-layer');
-                    
+
                     blessingText.classList.add('pop');
                     setTimeout(() => blessingText.classList.remove('pop'), 300);
-                    
+
                     if (navigator.vibrate) navigator.vibrate(20);
-                    
+
                     let clientX, clientY;
                     if (e && e.touches) {
                         clientX = e.touches[0].clientX;
@@ -790,19 +832,16 @@
                         clientY = e.clientY;
                     }
                     spawnFloatingHearts(clientX, clientY);
-                    
-                    scratchCard.style.boxShadow = '0 6px 0 #b28b6a, 0 0 20px #e6b17e';
-                    setTimeout(() => scratchCard.style.boxShadow = '', 400);
                 }
             }
 
             function resetScratchCard() {
                 scratchCard.classList.add('shake');
                 setTimeout(() => scratchCard.classList.remove('shake'), 400);
-                
+
                 blessingText.textContent = getRandomThanks();
                 scratchLayer.classList.remove('hidden-layer');
-                
+
                 blessingText.style.transform = 'scale(0.95)';
                 setTimeout(() => blessingText.style.transform = '', 100);
             }
