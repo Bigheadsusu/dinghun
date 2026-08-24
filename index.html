@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta property="og:title" content="林虹 & 叶林锦 · 订婚喜宴邀请函" />
     <meta property="og:description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！" />
-    <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/cover(1).jpg" />
+    <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/assets/img/cover.jpg" />
     <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/" />
     <meta property="og:type" content="website" />
+    <meta name="description" content="林虹 与 叶林锦 订婚喜宴邀请函 · 赤绳系定，白头永偕，诚邀您见证我们的幸福时刻。" />
+    <meta name="theme-color" content="#8b1a1a" />
+    <link rel="icon" href="https://bigheadsusu.github.io/dinghun/assets/img/cover.jpg" type="image/jpeg" />
     <title>林虹 💗 叶林锦 · 订婚喜宴</title>
     <style>
         * {
@@ -480,9 +483,9 @@
     <!-- 背景音乐（优雅中式） -->
     <audio id="bgMusic" loop preload="auto">
         <!-- 选用一首喜庆的免费古筝曲（公开资源），若链接失效用户可自行替换 -->
-        <source src="https://bigheadsusu.github.io/dinghun/1.mp3" type="audio/mpeg">
+        <source src="https://bigheadsusu.github.io/dinghun/assets/audio/bgm.mp3" type="audio/mpeg">
     </audio>
-    <div class="music-control" id="musicToggle">
+    <div class="music-control" id="musicToggle" role="button" tabindex="0" aria-label="播放或暂停背景音乐">
         <div class="music-icon">🎵</div>
     </div>
 
@@ -658,7 +661,9 @@
             }
             
             // ---------- 2. 倒计时 ----------
-            const targetDate = new Date(2025, 4, 1, 12, 0, 0);
+            // ⚠️ 订婚日期（本地时间）。请与实际日期保持一致；
+            // 注意：本页显示 12:00，而 ylj.html 显示 17:00，两页开席时间需统一。
+            const targetDate = new Date(2026, 4, 1, 12, 0, 0); // 2026-05-01 12:00
             const daysElem = document.getElementById('cdDays');
             const hoursElem = document.getElementById('cdHours');
             const minsElem = document.getElementById('cdMins');
@@ -686,15 +691,7 @@
                 if (secsElem) secsElem.innerText = seconds < 10 ? '0' + seconds : seconds;
             }
             
-            function setWeekdayText() {
-                const weekdaySpan = document.getElementById('weekdayShow');
-                if (weekdaySpan) {
-                    const dateObj = new Date(2025, 5, 1);
-                    const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-                    weekdaySpan.innerText = `(${weekdays[dateObj.getDay()]})`;
-                }
-            }
-            setWeekdayText();
+            // 星期已在 HTML 中直接写明（农历/星期），此处无需再用 JS 计算，避免重复与不一致。
             updateTimer();
             const timerInterval = setInterval(updateTimer, 1000);
             
@@ -727,6 +724,14 @@
                     pauseMusic();
                 } else {
                     playMusic();
+                }
+            });
+
+            // 键盘可达性：支持 Enter / 空格触发
+            musicToggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    musicToggle.click();
                 }
             });
             

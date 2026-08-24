@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <!-- 微信/QQ 分享优化 Meta -->
-    <meta property="og:title" content="订婚喜宴">
+    <meta property="og:title" content="结婚宴席">
     <meta property="og:description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！">
-    <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/1(1).png">
+    <meta property="og:image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
     <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/ylj.html">
     <meta property="og:type" content="website">
-    <meta itemprop="name" content="订婚喜宴">
+    <meta name="description" content="魏永森 与 叶湄敏 结婚宴席邀请函 · 赤绳系定，白头永偕，诚邀您见证我们的幸福时刻。">
+    <meta name="theme-color" content="#7a2e2e" />
+    <link rel="icon" href="https://bigheadsusu.github.io/dinghun/assets/img/cover.jpg" type="image/jpeg" />
+    <meta itemprop="name" content="结婚宴席">
     <meta itemprop="description" content="赤绳系定，白头永偕。诚邀您见证我们的幸福时刻！">
-    <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/cover(1).jpg">
-    <title>订婚喜宴</title>
+    <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/assets/img/cover.jpg">
+    <title>结婚宴席</title>
     <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -128,19 +131,59 @@
         }
         .groom, .bride {
             display: inline-block;
-            font-size: 38px;
+            font-size: 44px;
             font-weight: 700;
             color: #5d2e2e;
             text-shadow: 1px 1px 0 #ebd5bc;
             line-height: 1.2;
         }
+        /* 新人角色标签 + 红色圆点强调（新郎 / 新娘） */
+        .person {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .person .role {
+            display: block;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #b1624b;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        /* 红色圆点：主题色 / 状态标识 */
+        .red-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #c0392b;
+            box-shadow: 0 0 6px rgba(192, 57, 43, 0.55);
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        /* 主题标识状态条 */
+        .theme-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: rgba(192, 57, 43, 0.10);
+            border: 1px solid #c0392b;
+            color: #a03434;
+            padding: 5px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            margin: 0 auto 14px;
+        }
         .and-sign {
             display: inline-block;
             font-size: 32px;
-            margin: 0 8px;
+            margin: 0 10px;
             color: #b16a4b;
             font-family: 'Times New Roman', serif;
-            transform: translateY(-4px);
+            vertical-align: middle;
         }
 
         /* 新人敬邀文案 */
@@ -474,7 +517,9 @@
 
         @media (max-width: 400px) {
             .invitation { padding: 20px 14px 24px; }
-            .groom, .bride { font-size: 32px; }
+            .groom, .bride { font-size: 34px; }
+            .person .role { font-size: 12px; letter-spacing: 2px; }
+            .theme-badge { font-size: 12px; letter-spacing: 2px; }
             .gregorian { font-size: 24px; }
             .blessing-text { font-size: 22px; }
         }
@@ -491,34 +536,43 @@
             <i class="fas fa-leaf"></i>
         </div>
 
+        <!-- 主题标识：红色圆点 + 结婚宴席（状态 / 主题色标识） -->
+        <div class="theme-badge"><i class="red-dot"></i> 结婚宴席</div>
+
         <div class="title-main">
-            <h2>订婚喜宴</h2>
-            <div class="en-sub">ENGAGEMENT CEREMONY</div>
+            <h2>结婚宴席</h2>
+            <div class="en-sub">WEDDING BANQUET</div>
         </div>
 
         <div class="couple-names">
-            <span class="groom">叶林锦</span>
+            <div class="person">
+                <span class="role"><i class="red-dot"></i>新郎</span>
+                <span class="groom">魏永森</span>
+            </div>
             <span class="and-sign">&</span>
-            <span class="bride">林虹</span>
+            <div class="person">
+                <span class="role"><i class="red-dot"></i>新娘</span>
+                <span class="bride">叶湄敏</span>
+            </div>
         </div>
 
         <!-- 新人敬邀文案 (已删除父母相关内容) -->
         <div class="announcement">
             <div class="main-invite">❤️ 诚挚邀请 ❤️</div>
             <div class="couple-line">
-                <span>叶林锦</span> 与 <span>林虹</span>
+                <span>魏永森</span> 与 <span>叶湄敏</span>
             </div>
-            <div>举行订婚典礼 · 敬备喜酌</div>
+            <div>举行结婚典礼 · 敬备喜酌</div>
             <div style="font-size:16px; margin-top:8px; opacity:0.8;">恭候您的光临</div>
         </div>
 
         <div class="date-card">
             <div class="date-row">
-                <span class="gregorian">2026.5.1</span>
-                <span class="lunar">农历三月十五</span>
+                <span class="gregorian">10月1日</span>
+                <span class="lunar">农历八月廿一</span>
             </div>
             <div class="time-info">
-                <i class="far fa-clock"></i> 星期五 · 下午17:00 开席
+                <i class="far fa-clock"></i> <i class="red-dot"></i> 星期四 · 12:00 午宴
             </div>
         </div>
 
@@ -559,15 +613,15 @@
 
         <!-- 音乐控制 -->
         <div class="music-widget">
-            <button id="musicToggleBtn" class="music-toggle">
-                <i class="fas fa-music"></i> <span id="musicText">播放音乐</span>
+            <button id="musicToggleBtn" class="music-toggle" aria-label="播放或暂停背景音乐">
+                <i class="fas fa-music" id="musicIcon"></i> <span id="musicText">播放音乐</span>
             </button>
         </div>
         <div class="touch-hint" id="hintText">
             <i class="far fa-hand-pointer"></i> 轻触页面任意处播放喜乐
         </div>
 
-        <audio id="bgMusic" loop preload="auto" src="https://bigheadsusu.github.io/dinghun/1.mp3"></audio>
+        <audio id="bgMusic" loop preload="auto" src="https://bigheadsusu.github.io/dinghun/assets/audio/bgm.mp3"></audio>
     </div>
 
     <script>
@@ -600,6 +654,7 @@
             const bgMusic = document.getElementById('bgMusic');
             const musicToggleBtn = document.getElementById('musicToggleBtn');
             const musicTextSpan = document.getElementById('musicText');
+            const musicIconSpan = document.getElementById('musicIcon');
             const hintText = document.getElementById('hintText');
 
             let userHasInteracted = false;
@@ -608,13 +663,9 @@
             bgMusic.volume = 0.65;
 
             function updateMusicButton() {
-                if (bgMusic.paused) {
-                    musicTextSpan.innerText = '播放音乐';
-                    musicToggleBtn.innerHTML = '<i class="fas fa-music"></i> 播放音乐';
-                } else {
-                    musicTextSpan.innerText = '暂停音乐';
-                    musicToggleBtn.innerHTML = '<i class="fas fa-volume-up"></i> 暂停音乐';
-                }
+                const playing = !bgMusic.paused;
+                musicTextSpan.textContent = playing ? '暂停音乐' : '播放音乐';
+                musicIconSpan.className = playing ? 'fas fa-volume-up' : 'fas fa-music';
             }
 
             function attemptPlayMusic() {
