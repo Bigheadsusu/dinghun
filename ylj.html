@@ -5,7 +5,7 @@
 <title>结婚喜宴 · 魏永森 &amp; 叶湄敏</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="description" content="吾家有喜 · 魏永森 & 叶湄敏 结婚喜宴 · 2026年10月1日（农历八月廿一）12:00 午宴 · 永泰县长庆镇人民政府东50米 永泰县 · 诚挚邀请您参加我们的婚礼喜宴">
-<meta name="theme-color" content="#c8102e">
+<meta name="theme-color" content="#f5efe2">
 <!-- ===== 微信 / QQ 分享适配 ===== -->
 <meta property="og:title" content="结婚喜宴 · 魏永森 & 叶湄敏">
 <meta property="og:description" content="吾家有喜 · 2026.10.01 农历八月廿一 12:00 午宴 · 永泰县长庆镇人民政府东50米 永泰县。诚挚邀请您参加我们的婚礼喜宴。">
@@ -17,246 +17,269 @@
 <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
 <link rel="icon" href="assets/img/og-ylj.png">
 <style>
-/* ================= 全局 ================= */
+/* ================= 全局 · 宣纸墨韵 ================= */
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { -webkit-text-size-adjust: 100%; }
+:root {
+    --paper: #f5efe2;
+    --ink: #33302b;
+    --ink-soft: rgba(51, 48, 43, 0.62);
+    --ink-faint: rgba(51, 48, 43, 0.35);
+    --cinnabar: #b13328;
+    --cinnabar-soft: rgba(177, 51, 40, 0.42);
+}
 body {
     font-family: "SimSun", "Songti SC", "宋体", serif;
-    background: #c8102e;
-    background-image:
-        radial-gradient(circle at 8% 12%, rgba(255, 214, 106, 0.10), transparent 42%),
-        radial-gradient(circle at 92% 80%, rgba(255, 214, 106, 0.12), transparent 45%);
-    color: #fff8e7;
-    line-height: 1.7;
+    color: var(--ink);
+    line-height: 1.8;
     min-height: 100vh;
     overflow-x: hidden;
+    background:
+        radial-gradient(1100px 560px at 88% -8%, rgba(177, 51, 40, 0.055), transparent 62%),
+        radial-gradient(900px 520px at -12% 34%, rgba(51, 48, 43, 0.05), transparent 60%),
+        radial-gradient(760px 420px at 78% 88%, rgba(51, 48, 43, 0.04), transparent 58%),
+        var(--paper);
 }
 .kai { font-family: "KaiTi", "STKaiti", "楷体", "Microsoft JhengHei", serif; }
-.wrap { max-width: 620px; margin: 0 auto; padding: 18px 14px 40px; position: relative; }
+.wrap { max-width: 600px; margin: 0 auto; padding: 34px 30px 0; position: relative; }
 
-/* ================= 音乐按钮 ================= */
+/* ================= 音乐按钮（纯 SVG 图标） ================= */
 .music-btn {
-    position: fixed; top: 14px; right: 14px; z-index: 999;
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(120, 8, 8, 0.72);
-    border: 2px solid #f0c75e;
+    position: fixed; top: 16px; right: 16px; z-index: 999;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(245, 239, 226, 0.88);
+    border: 1px solid var(--cinnabar-soft);
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    cursor: pointer; color: var(--cinnabar);
+    box-shadow: 0 2px 10px rgba(51, 48, 43, 0.12);
 }
-.music-btn img { width: 26px; height: 26px; display: block; pointer-events: none; }
-.spin { animation: spin 3s linear infinite; }
+.music-btn svg { width: 20px; height: 20px; display: block; }
+.music-btn svg.spin { animation: spin 4s linear infinite; }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* ================= 封面区 ================= */
-.hero {
-    position: relative;
-    text-align: center;
-    background: linear-gradient(175deg, #a8121f 0%, #c8102e 55%, #d4262f 100%);
-    border: 2px solid #f0c75e;
-    border-radius: 16px;
-    padding: 42px 18px 30px;
-    overflow: hidden;
+/* ================= 封面 · 大留白 ================= */
+.hero { text-align: center; padding: 58px 0 8px; position: relative; }
+.hero .eyebrow {
+    font-size: 12px; letter-spacing: 13px; text-indent: 13px;
+    color: var(--cinnabar); margin-bottom: 34px;
 }
-.hero .xi-watermark {
-    position: absolute; top: 6%; left: 50%; transform: translateX(-50%);
-    font-size: 200px; color: rgba(255, 214, 106, 0.07);
-    line-height: 1; user-select: none; pointer-events: none;
+.hero .wuxi {
+    font-size: clamp(38px, 11vw, 50px); font-weight: 700;
+    letter-spacing: 18px; text-indent: 18px; color: var(--ink);
+    line-height: 1.3;
+}
+.hero .names {
+    font-size: clamp(30px, 9vw, 40px); color: var(--ink);
+    letter-spacing: 4px; margin-top: 26px; line-height: 1.4;
+}
+.hero .names .dot {
+    font-style: normal; font-size: 13px; color: var(--cinnabar);
+    margin: 0 16px; vertical-align: middle; opacity: 0.85;
+}
+/* 印章 */
+.seal {
+    position: relative; width: 54px; height: 54px; margin: 36px auto 0;
+    background: var(--cinnabar); color: #f9f4e6; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; transform: rotate(-3deg);
+    box-shadow: 0 2px 8px rgba(140, 35, 25, 0.28);
+}
+.seal::after {
+    content: ""; position: absolute; inset: 3px;
+    border: 1px solid rgba(249, 244, 230, 0.55); border-radius: 4px;
+}
+/* 竖排联句 · 虚实相生 */
+.couplet {
+    display: flex; flex-direction: row-reverse;
+    justify-content: center; gap: 58px;
+    height: 208px; margin: 46px auto 0;
+}
+.couplet .line {
+    writing-mode: vertical-rl; letter-spacing: 11px;
+    font-size: 17px; color: var(--ink);
+}
+.couplet .line.b { margin-top: 40px; color: var(--ink-soft); }
+.hero .invite {
+    font-size: 14px; letter-spacing: 6px; text-indent: 6px;
+    color: var(--ink-soft); margin-top: 44px;
+}
+.hero .date { margin-top: 30px; }
+.hero .date .num {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px; letter-spacing: 2px; color: var(--ink);
+}
+.hero .date .num em { font-style: normal; color: var(--cinnabar); margin: 0 7px; }
+.hero .date .lunar {
+    display: block; font-size: 13px; letter-spacing: 7px; text-indent: 7px;
+    color: var(--ink-soft); margin-top: 10px;
+}
+
+/* ================= 分节 · 一点朱砂 ================= */
+.orna { display: flex; align-items: center; gap: 16px; margin: 68px 0 4px; }
+.orna .l, .orna .r { flex: 1; height: 1px; }
+.orna .l { background: linear-gradient(90deg, transparent, var(--ink-faint)); }
+.orna .r { background: linear-gradient(90deg, var(--ink-faint), transparent); }
+.orna .d { color: var(--cinnabar); font-size: 11px; line-height: 1; }
+
+/* ================= 婚宴信息 · 疏密对比 ================= */
+.info { position: relative; padding: 30px 4px 0; }
+.info .watermark {
+    position: absolute; top: 26px; right: -14px;
+    font-size: 200px; line-height: 1; color: rgba(177, 51, 40, 0.045);
+    pointer-events: none; user-select: none;
     font-family: "KaiTi", "STKaiti", "楷体", serif;
 }
-.hero .tag {
-    display: inline-block;
-    border: 1px solid #f0c75e; border-radius: 20px;
-    padding: 3px 16px; font-size: 12px; letter-spacing: 6px;
-    color: #ffd76a; background: rgba(240, 199, 94, 0.10);
-    margin-bottom: 18px;
+.block { display: flex; gap: 24px; align-items: flex-start; margin: 48px 0; position: relative; }
+.block .v-label {
+    writing-mode: vertical-rl; letter-spacing: 15px; text-indent: 3px;
+    font-size: 13px; color: var(--cinnabar);
+    border: 1px solid var(--cinnabar-soft); border-radius: 3px;
+    padding: 13px 7px; background: rgba(177, 51, 40, 0.04);
+    flex-shrink: 0;
 }
-.hero .names { font-size: 42px; font-weight: 700; color: #fff8e7; letter-spacing: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
-.hero .amp { color: #f0c75e; font-size: 30px; vertical-align: middle; margin: 0 6px; }
-.hero .wuxi {
-    font-size: 30px; letter-spacing: 14px; color: #f0c75e;
-    margin: 16px 0 6px; font-weight: 700;
+.block .content { flex: 1; padding-top: 2px; }
+.block h3 { font-size: 24px; font-weight: 600; letter-spacing: 3px; color: var(--ink); line-height: 1.6; }
+.block .sub {
+    font-size: 14px; color: var(--ink-soft);
+    letter-spacing: 2px; line-height: 2.1; margin-top: 8px;
 }
-.hero .poem { font-size: 15px; color: #fff8e7; letter-spacing: 3px; line-height: 2; opacity: 0.96; }
-.hero .invite { font-size: 17px; color: #ffe9b0; margin: 14px 0 18px; letter-spacing: 2px; }
-.hero .date-line {
-    display: inline-block; border-top: 1px solid rgba(240, 199, 94, 0.55);
-    border-bottom: 1px solid rgba(240, 199, 94, 0.55);
-    padding: 8px 18px; font-size: 15px; color: #ffe9b0; letter-spacing: 2px;
+.nav {
+    display: inline-block; margin-top: 16px;
+    color: var(--cinnabar); text-decoration: none;
+    font-size: 13px; letter-spacing: 5px; text-indent: 5px;
+    border-bottom: 1px solid var(--cinnabar-soft); padding-bottom: 4px;
 }
-/* 封面合影相框 */
-.hero-photo {
-    margin: 24px auto 0; max-width: 320px; padding: 8px;
-    background: #fbf3e4; border: 2px solid #f0c75e; border-radius: 12px;
-}
-.hero-photo img { width: 100%; display: block; border-radius: 6px; object-fit: cover; max-height: 260px; }
+.nav:active { opacity: 0.7; }
 
-/* ================= 分节标题 ================= */
-.sec-title {
-    text-align: center; margin: 34px 0 18px; position: relative;
+/* 落款 · 呼应印章 */
+.sign {
+    margin-top: 58px; text-align: right;
+    display: flex; justify-content: flex-end; align-items: center; gap: 16px;
 }
-.sec-title .cn { font-size: 22px; letter-spacing: 8px; color: #f0c75e; font-weight: 700; }
-.sec-title .en { font-size: 11px; letter-spacing: 5px; color: rgba(255, 248, 231, 0.6); margin-top: 2px; text-transform: uppercase; }
-.sec-title .line { width: 60%; height: 1px; margin: 12px auto 0; background: linear-gradient(90deg, transparent, #f0c75e, transparent); }
-
-/* ================= 中式插画画廊 ================= */
-.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.g-item {
-    position: relative; border-radius: 10px; overflow: hidden;
-    border: 2px solid #f0c75e; background: #8f0e19; cursor: pointer;
-    aspect-ratio: 3 / 4;
+.sign .names { font-size: 20px; letter-spacing: 5px; color: var(--ink); }
+.sign .seal-mini {
+    position: relative; width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--cinnabar); color: #f9f4e6; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    transform: rotate(3deg);
+    box-shadow: 0 1px 6px rgba(140, 35, 25, 0.25);
 }
-.g-item img.main { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-.g-item:hover img.main { transform: scale(1.06); }
-.g-item .deco {
-    position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%);
-    width: 52%; max-width: 110px; pointer-events: none; opacity: 0.96;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+.sign .seal-mini::after {
+    content: ""; position: absolute; inset: 2px;
+    border: 1px solid rgba(249, 244, 230, 0.5); border-radius: 3px;
 }
-@media (min-width: 560px) {
-    .gallery { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sign .seal-mini span {
+    writing-mode: vertical-rl; font-size: 13px; letter-spacing: 3px; line-height: 1;
+    font-family: "KaiTi", "STKaiti", "楷体", serif;
 }
 
-/* ================= 轻量放大查看 ================= */
-.viewer {
-    position: fixed; inset: 0; z-index: 1000; display: none;
-    background: rgba(20, 2, 2, 0.92); align-items: center; justify-content: center;
+/* ================= 尾景 · 远山淡墨 ================= */
+footer { margin-top: 74px; text-align: center; position: relative; }
+footer .sun {
+    width: 42px; height: 42px; border-radius: 50%; margin: 0 auto;
+    background: radial-gradient(circle, rgba(177, 51, 40, 0.66), rgba(177, 51, 40, 0.38));
+    filter: blur(0.4px);
 }
-.viewer.open { display: flex; }
-.viewer img { max-width: 92vw; max-height: 86vh; border: 2px solid #f0c75e; border-radius: 10px; }
-.viewer .close {
-    position: absolute; top: 16px; right: 20px; font-size: 34px; color: #f0c75e;
-    cursor: pointer; line-height: 1; padding: 4px;
+footer .mountains { display: block; width: 100%; height: 110px; margin-top: -14px; }
+footer .blessing {
+    padding: 4px 0 52px; font-size: 12.5px; color: var(--ink-soft);
+    letter-spacing: 4px; text-indent: 4px; line-height: 2.5;
 }
 
-/* ================= 婚宴信息卡 ================= */
-.info-card {
-    position: relative; border-radius: 14px; overflow: hidden;
-    border: 2px solid #f0c75e;
-    margin-top: 30px; text-align: center;
+/* ================= 移动端微调 ================= */
+@media (max-width: 420px) {
+    .wrap { padding: 24px 22px 0; }
+    .couplet { gap: 42px; height: 188px; }
+    .couplet .line { font-size: 16px; letter-spacing: 9px; }
+    .couplet .line.b { margin-top: 32px; }
+    .info .watermark { font-size: 150px; right: -18px; }
+    .block { gap: 18px; margin: 40px 0; }
 }
-.info-card .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.info-card .mask { position: absolute; inset: 0; background: rgba(138, 12, 18, 0.86); }
-.info-card .body { position: relative; padding: 28px 18px 26px; }
-.info-card .xi { font-size: 30px; color: #f5d36a; letter-spacing: 8px; }
-.info-card .divider { width: 60%; height: 1px; margin: 10px auto; background: linear-gradient(90deg, transparent, #f5d36a, transparent); }
-.info-card .poem { font-size: 14px; color: #fff8e7; line-height: 2; letter-spacing: 2px; }
-.block { margin: 16px 0; }
-.block .label { font-size: 12px; color: #f5d36a; letter-spacing: 5px; margin-bottom: 6px; }
-.block .main { font-size: 19px; color: #fff8e7; letter-spacing: 2px; font-weight: 600; line-height: 1.9; }
-.nav-btn {
-    display: inline-block; margin-top: 14px;
-    border: 1px solid #f0c75e; border-radius: 24px;
-    padding: 8px 26px; font-size: 14px; color: #ffe9b0; letter-spacing: 3px;
-    background: rgba(240, 199, 94, 0.12); text-decoration: none;
-}
-.nav-btn:active { background: rgba(240, 199, 94, 0.28); }
-.info-card .sign { font-size: 19px; color: #f5d36a; letter-spacing: 4px; margin-top: 14px; }
-.info-card .tip { font-size: 12px; color: #ffe9b0; opacity: 0.85; margin-top: 8px; letter-spacing: 2px; }
-
-/* ================= 落款 ================= */
-footer {
-    text-align: center; margin-top: 34px; padding: 18px 10px 6px;
-    border-top: 1px solid rgba(240, 199, 94, 0.35);
-    font-size: 12px; color: rgba(255, 248, 231, 0.7); letter-spacing: 2px; line-height: 2;
-}
-footer .heart { color: #f0c75e; }
 </style>
 </head>
 <body>
 
 <!-- 音乐按钮 -->
 <div class="music-btn" id="musicToggle" role="button" aria-label="播放或暂停背景音乐" title="播放 / 暂停音乐">
-    <img id="musicOn" class="spin" src="show/musicon.png" alt="暂停音乐">
-    <img id="musicOff" src="show/musicoff.png" alt="播放音乐" style="display:none;">
+    <svg id="musicIcon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 17.6V6.1l10-2v11.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <circle cx="6.6" cy="17.6" r="2.6" fill="currentColor"/>
+        <circle cx="16.6" cy="15.5" r="2.6" fill="currentColor"/>
+    </svg>
 </div>
 <audio id="bgm" loop preload="auto" src="assets/audio/bgm.mp3"></audio>
 
 <div class="wrap">
 
-    <!-- ======== 封面 ======== -->
+    <!-- ======== 封面 · 吾家有喜 ======== -->
     <section class="hero">
-        <div class="xi-watermark">囍</div>
-        <div class="tag">结 婚 喜 宴</div>
-        <div class="names">魏永森 <span class="amp">&amp;</span> 叶湄敏</div>
-        <div class="wuxi">吾家有喜</div>
-        <div class="poem">有生之年 · 欣喜相逢<br>佳期已定 · 敬备喜筵</div>
-        <div class="invite">诚挚邀请您参加我们的婚礼喜宴</div>
-        <div class="date-line">2026.10.01 · 农历八月廿一 · 星期四</div>
-        <div class="hero-photo">
-            <img src="show/cover.jpg" alt="结婚喜宴合影">
+        <p class="eyebrow">结 婚 喜 宴</p>
+        <h1 class="wuxi kai">吾家有喜</h1>
+        <div class="names kai">魏永森<i class="dot">◆</i>叶湄敏</div>
+        <div class="seal kai">囍</div>
+        <div class="couplet kai">
+            <span class="line a">有生之年 · 欣喜相逢</span>
+            <span class="line b">佳期已定 · 敬备喜筵</span>
+        </div>
+        <p class="invite">诚挚邀请您参加我们的婚礼喜宴</p>
+        <div class="date">
+            <span class="num">2026<em>·</em>10<em>·</em>01</span>
+            <span class="lunar">农历八月廿一 · 星期四 · 中午十二时</span>
         </div>
     </section>
 
-    <!-- ======== 中式插画画廊 ======== -->
-    <div class="sec-title">
-        <div class="cn">良辰美景</div>
-        <div class="en">Happy Moments</div>
-        <div class="line"></div>
-    </div>
-    <div class="gallery">
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_01.jpg" alt="喜庆插画一"><img class="deco" src="show/remark_01.png" alt="情定终身"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_02.jpg" alt="喜庆插画二"><img class="deco" src="show/remark_03.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_03.jpg" alt="喜庆插画三"><img class="deco" src="show/remark_02.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_04.jpg" alt="喜庆插画四"><img class="deco" src="show/remark_04.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_05.jpg" alt="紫禁城红墙"><img class="deco" src="show/remark_05.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_06.jpg" alt="喜庆插画六"><img class="deco" src="show/remark_06.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_07.jpg" alt="喜庆插画七"><img class="deco" src="show/remark_04.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_08.jpg" alt="中式红墙金瓦"><img class="deco" src="show/remark_05.png" alt="祝福语"></div>
-        <div class="g-item" onclick="openViewer(this)"><img class="main" src="show/mobile_09.jpg" alt="喜庆插画九"><img class="deco" src="show/remark_01.png" alt="情定终身"></div>
-    </div>
+    <div class="orna" aria-hidden="true"><span class="l"></span><span class="d">◆</span><span class="r"></span></div>
 
-    <!-- ======== 婚宴信息卡 ======== -->
-    <div class="info-card">
-        <img class="bg" src="show/mobile_end.jpg" alt="">
-        <div class="mask"></div>
-        <div class="body">
-            <div class="xi kai">囍</div>
-            <div class="divider"></div>
-            <div class="poem kai">有生之年 · 欣喜相逢<br>佳期已定 · 敬备喜筵</div>
-            <div class="divider"></div>
+    <!-- ======== 婚宴信息 · 疏密有致 ======== -->
+    <section class="info">
+        <div class="watermark" aria-hidden="true">囍</div>
 
-            <div class="block">
-                <div class="label">婚 宴 时 间</div>
-                <div class="main">2026年10月1日 星期四<br>中午 12:00 午宴</div>
+        <div class="block">
+            <span class="v-label kai">时&nbsp;间</span>
+            <div class="content">
+                <h3 class="kai">二〇二六年十月一日</h3>
+                <p class="sub">星期四 · 农历八月廿一<br>中午 12:00 · 敬备午宴</p>
             </div>
-
-            <div class="block">
-                <div class="label">婚 宴 地 点</div>
-                <div class="main">永泰县长庆镇人民政府东50米<br>永泰县</div>
-                <a class="nav-btn" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=永泰县长庆镇人民政府">点击导航</a>
-            </div>
-
-            <div class="sign kai">魏永森 &amp; 叶湄敏 · 敬邀</div>
-            <div class="tip">期待您的光临 · 共证良缘</div>
         </div>
-    </div>
 
+        <div class="block">
+            <span class="v-label kai">地&nbsp;点</span>
+            <div class="content">
+                <h3 class="kai">永泰县长庆镇</h3>
+                <p class="sub">人民政府东 50 米 · 永泰县</p>
+                <a class="nav" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=永泰县长庆镇人民政府">位 置 导 航</a>
+            </div>
+        </div>
+
+        <div class="sign">
+            <span class="names kai">魏永森 · 叶湄敏&nbsp;敬邀</span>
+            <span class="seal-mini"><span>敬邀</span></span>
+        </div>
+    </section>
+
+    <!-- ======== 尾景 · 远山 ======== -->
     <footer>
-        感谢您百忙之中前来见证我们的幸福时刻<br>
-        愿与您共赴这场红妆之约 <span class="heart">❤</span><br>
-        魏永森 · 叶湄敏
+        <div class="sun" aria-hidden="true"></div>
+        <svg class="mountains" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,140 L0,88 Q110,26 230,84 T460,66 T800,98 L800,140 Z" fill="rgba(51,48,43,0.055)"/>
+            <path d="M0,140 L0,112 Q190,58 390,106 T800,124 L800,140 Z" fill="rgba(51,48,43,0.085)"/>
+        </svg>
+        <p class="blessing">期待您的光临 · 共证良缘<br>愿与您共赴这场红妆之约</p>
     </footer>
-</div>
-
-<!-- 图片放大查看 -->
-<div class="viewer" id="viewer" onclick="closeViewer(event)">
-    <img id="viewerImg" src="" alt="查看大图">
-    <span class="close" title="关闭">&times;</span>
 </div>
 
 <script>
 (function () {
     // ---------- 背景音乐 ----------
     var audio = document.getElementById('bgm');
-    var on = document.getElementById('musicOn');
-    var off = document.getElementById('musicOff');
+    var icon = document.getElementById('musicIcon');
     var toggle = document.getElementById('musicToggle');
     var playing = false;
 
     function setState(state) {
         playing = state;
-        on.style.display = playing ? 'block' : 'none';
-        off.style.display = playing ? 'none' : 'block';
+        if (icon) { icon.classList.toggle('spin', playing); }
+        toggle.setAttribute('aria-pressed', playing ? 'true' : 'false');
     }
     function playBgm() {
         if (!audio) return;
@@ -288,22 +311,6 @@ footer .heart { color: #f0c75e; }
                 document.addEventListener('click', once, { once: true });
             });
         }
-    });
-
-    // ---------- 图片放大查看 ----------
-    window.openViewer = function (item) {
-        var img = item.querySelector('img.main');
-        if (!img) return;
-        document.getElementById('viewerImg').src = img.src;
-        document.getElementById('viewer').classList.add('open');
-    };
-    window.closeViewer = function (e) {
-        if (e.target.id === 'viewer' || e.target.className === 'close') {
-            document.getElementById('viewer').classList.remove('open');
-        }
-    };
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { document.getElementById('viewer').classList.remove('open'); }
     });
 })();
 </script>
