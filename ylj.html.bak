@@ -10,13 +10,13 @@
     <meta property="og:url" content="https://bigheadsusu.github.io/dinghun/ylj.html">
     <meta property="og:type" content="website">
     <meta name="description" content="魏永森 与 叶湄敏 结婚喜宴邀请函 · 吾家有喜，佳期已定，敬备喜筵，诚邀您共赴婚礼喜宴。">
-    <meta name="theme-color" content="#C9A227" />
+    <meta name="theme-color" content="#c8102e" />
     <!-- 唯一应用图片：og-ylj.png（同时用作 favicon 与分享图，移除其余多余图片引用） -->
     <link rel="icon" href="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png" type="image/png" />
-    <meta itemprop="name" name="结婚喜宴">
+    <meta itemprop="name" content="结婚喜宴">
     <meta itemprop="description" content="吾家有喜 · 有生之年欣喜相逢，佳期已定敬备喜筵，诚挚邀请您参加我们的婚礼喜宴。">
     <meta itemprop="image" content="https://bigheadsusu.github.io/dinghun/assets/img/og-ylj.png">
-    <title>吾家有喜 · 结婚喜宴</title>
+    <title>结婚喜宴</title>
     <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -28,8 +28,8 @@
 
         /* ===== 中国风字体 ===== */
         body {
-            /* 黄金主色调 · 香槟金渐变底 */
-            background: linear-gradient(160deg, #FBEFD2 0%, #F4DEAE 55%, #ECCF92 100%);
+            /* 纯红背景 · 扁平化 */
+            background: #c8102e;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -39,25 +39,15 @@
             position: relative;
             overflow-x: hidden;
         }
-        /* 背景金线装饰框 */
+        /* 视口金线装饰框（扁平） */
         body::before {
             content: "";
             position: fixed;
             inset: 10px;
-            border: 2px solid rgba(184, 134, 11, 0.45);
+            border: 2px solid rgba(230, 180, 34, 0.55);
             border-radius: 6px;
             pointer-events: none;
             z-index: 1;
-        }
-
-        /* 背景花卉平铺图案（淡金） */
-        .bg-floral {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
         }
 
         /* ===== 全局飘落特效容器 ===== */
@@ -84,29 +74,28 @@
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
         }
 
-        /* ===== 邀请函主卡片（象牙白底 · 双层金边 · 四角花饰） ===== */
+        /* ===== 邀请函主卡片（扁平 · 金边双线） ===== */
         .invitation {
             max-width: 480px;
             width: 100%;
-            background: linear-gradient(180deg, #FFFDF6 0%, #FBF2DC 100%);
+            background: #b11a1a;
             border-radius: 18px;
-            border: 3px solid #C9A227;
-            padding: 30px 22px 32px;
+            border: 3px solid #e6b422;
+            padding: 28px 22px 32px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 10px 30px rgba(123, 88, 12, 0.18);
         }
         /* 内层细金线框 */
         .invitation::before {
             content: "";
             position: absolute;
-            inset: 8px;
-            border: 1px solid #E6C860;
+            inset: 7px;
+            border: 1px solid #e6b422;
             border-radius: 12px;
             pointer-events: none;
             z-index: 0;
         }
-        /* 「囍」水印（淡金 · 中国风） */
+        /* 「囍」水印 */
         .invitation::after {
             content: "囍";
             position: absolute;
@@ -116,7 +105,7 @@
             font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 300px;
             line-height: 1;
-            color: rgba(201, 162, 39,  ̶0.08);
+            color: rgba(200, 16, 46, 0.06);
             z-index: 0;
             pointer-events: none;
         }
@@ -125,37 +114,23 @@
             z-index: 1;
         }
 
-        /* 四角花卉装饰 */
-        .corner {
-            position: absolute;
-            width: 84px;
-            height: 84px;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .corner-tl { top: 6px; left: 6px; }
-        .corner-tr { top: 6px; right: 6px; transform: scaleX(-1); }
-        .corner-bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
-        .corner-br { bottom: 6px; right: 6px; transform: scale(-1, -1); }
-        .corner svg { width: 100%; height: 100%; display: block; }
-
         .top-ornament {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 14px;
-            color: #C9A227;
+            margin-bottom: 16px;
+            color: #f4d03f;
         }
         .top-ornament i {
-            font-size: 18px;
-            opacity: 0.8;
+            font-size: 20px;
+            opacity: 0.7;
             animation: pulse 2s infinite;
         }
         .top-ornament span {
-            font-size: 15px;
+            font-size: 16px;
             letter-spacing: 8px;
             font-weight: 300;
-            color: #B0760E;
+            color: #f4d03f;
         }
         @keyframes pulse {
             0% { opacity: 0.5; transform: scale(1); }
@@ -163,63 +138,26 @@
             100% { opacity: 0.5; transform: scale(1); }
         }
 
-        /* 主题标识状态条（金色） */
-        .theme-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            background: #FBF2DC;
-            border: 1px solid #C9A227;
-            color: #9E1B1B;
-            padding: 5px 16px;
-            border-radius: 40px;
-            font-size: 14px;
-            letter-spacing: 4px;
-            font-weight: 700;
-            margin: 0 auto 14px;
-        }
-
-        /* ===== 吾家有喜 · 邀请文案标题块 ===== */
-        .invite-block {
+        .title-main {
             text-align: center;
-            margin: 4px 0 18px;
-        }
-        .xi-title {
-            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: #B0760E;
-            letter-spacing: 16px;
             margin-bottom: 12px;
-            text-indent: 16px; /* 抵消末字右侧字距，保持视觉居中 */
         }
-        .invite-poem {
+        .title-main h2 {
             font-family: 'KaiTi', 'STKaiti', '楷体', serif;
-            font-size: 19px;
-            color: #8C5A2B;
+            font-size: 32px;
+            font-weight: 700;
+            color: #f4d03f;
+            letter-spacing: 12px;
+            margin-bottom: 4px;
+        }
+        .title-main .en-sub {
+            font-size: 12px;
             letter-spacing: 4px;
-            line-height: 2;
-        }
-        .invite-line {
-            margin-top: 12px;
-            font-size: 16px;
-            color: #9E1B1B;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-        .invite-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 14px 0 2px;
-            color: #C9A227;
-        }
-        .invite-divider .line {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #C9A227, transparent);
+            color: #b8860b;
+            text-transform: uppercase;
+            border-top: 1px solid #e6b422;
+            display: inline-block;
+            padding-top: 6px;
         }
 
         /* 唯一应用图片（金边相框 · 扁平） */
@@ -227,11 +165,11 @@
             width: 78%;
             max-width: 320px;
             aspect-ratio: 16 / 9;
-            margin: 6px auto 18px;
+            margin: 6px auto 16px;
             border-radius: 12px;
             overflow: hidden;
-            border: 3px solid #C9A227;
-            background: #FBF2DC;
+            border: 3px solid #e6b422;
+            background: #b11a1a;
         }
         .hero-photo img {
             width: 100%;
@@ -249,7 +187,7 @@
             font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 44px;
             font-weight: 700;
-            color: #9E1B1B;
+            color: #fff3d6;
             line-height: 1.2;
         }
         /* 新人角色标签 + 红色圆点强调（新郎 / 新娘） */
@@ -261,37 +199,54 @@
             display: block;
             font-size: 14px;
             letter-spacing: 4px;
-            color: #B8860B;
+            color: #f3d9b0;
             font-weight: 600;
             margin-bottom: 6px;
         }
         /* 红色圆点：主题色 / 状态标识 */
-        .red-  dot {
+        .red-dot {
             display: inline-block;
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background: #C0392B;
+            background: #e63329;
             margin-right: 5px;
             vertical-align: middle;
+        }
+        /* 主题标识状态条 */
+        .theme-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: transparent;
+            border: 1px solid #f4d03f;
+            color: #f4d03f;
+            padding: 5px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            margin: 0 auto 14px;
         }
         .and-sign {
             display: inline-block;
             font-size: 32px;
             margin: 0 10px;
-            color: #B8860B;
+            color: #b8860b;
             font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             vertical-align: middle;
         }
 
-        /* 日期卡（象牙底 · 金边） */
+
+        /* 日期卡（扁平红底金边） */
         .date-card {
-            background: #FBF2DC;
+            background: #b11a1a;
             border-radius: 14px;
             padding: 16px 18px;
             margin: 20px 0 16px;
-            border: 2px solid #C9A227;
-            border-left: 6px solid #C0392B;
+            border: 2px solid #e6b422;
+            border-left: 6px solid #e6b422;
         }
         .date-row {
             display: flex;
@@ -304,12 +259,12 @@
             font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 28px;
             font-weight: 700;
-            color: #9E1B1B;
+            color: #f4d03f;
         }
         .lunar {
             font-size: 18px;
-            color: #fff;
-            background: #C9A227;
+            color: #b11a1a;
+            background: #f4d03f;
             padding: 4px 14px;
             border-radius: 40px;
             font-weight: 600;
@@ -318,42 +273,42 @@
             font-size: 20px;
             margin-top: 12px;
             font-weight: 500;
-            color: #6B4423;
+            color: #fbf3e4;
         }
 
-        /* 地点信息（象牙底 · 金边） */
+        /* 地点信息（扁平红底金边） */
         .location-section {
-            background: #FBF2DC;
-            border-radius:  ̶14px;
+            background: #b11a1a;
+            border-radius: 14px;
             padding: 16px 18px;
             margin: 18px 0 20px;
             text-align: center;
-            border: 2px solid #C9A227;
+            border: 2px solid #e6b422;
         }
         .venue-name {
             font-size: 22px;
             font-weight: 700;
-            color: #9E1B1B;
+            color: #f4d03f;
             letter-spacing: 2px;
         }
         .address-detail {
             font-size: 16px;
             margin: 8px 0 16px;
-            color: #6B4423;
+            color: #fbf3e4;
             word-break: break-word;
         }
         .nav-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #C9A227;
-            color: #fff;
+            background: #e6b422;
+            color: #8c1414;
             padding: 16px 30px;
             border-radius: 50px;
             font-size: 20px;
             font-weight: bold;
             text-decoration: none;
-            border: 2px solid #9E1B1B;
+            border: 2px solid #fbf3e4;
             width: fit-content;
             margin: 0 auto;
             gap: 10px;
@@ -363,18 +318,18 @@
             transform: translateY(2px);
         }
 
-        /* ===== 刮刮乐彩票游戏区（象牙底 · 金边） ===== */
+        /* ===== 刮刮乐彩票游戏区（扁平红底金边） ===== */
         .scratch-section {
-            background: #FBF2DC;
+            background: #b11a1a;
             border-radius: 16px;
             padding: 20px 16px 22px;
             margin: 24px 0 16px;
-            border: 2px solid #C9A227;
+            border: 2px solid #e6b422;
             text-align: center;
         }
         .scratch-title {
             font-size: 22px;
-            color: #9E1B1B;
+            color: #f4d03f;
             letter-spacing: 6px;
             margin-bottom: 12px;
             display: flex;
@@ -384,16 +339,16 @@
             font-weight: 600;
         }
         .scratch-title i {
-            color: #C9A227;
+            color: #f4d03f;
             font-size: 24px;
         }
 
         .scratch-card {
-            background: #FBF2DC;
+            background: #b11a1a;
             border-radius: 14px;
             padding: 8px;
             margin-bottom: 18px;
-            border: 2px solid #C9A227;
+            border: 2px solid #e6b422;
         }
         .scratch-card.shake {
             animation: cardShake 0.4s ease-in-out;
@@ -408,21 +363,21 @@
 
         .card-inner {
             position: relative;
-            background: #F3E2B8;
+            background: #a01717;
             border-radius: 10px;
             min-height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border: 2px solid #C9A227;
+            border: 2px solid #e6b422;
         }
 
         .blessing-text {
             font-family: 'KaiTi', 'STKaiti', '楷体', serif;
             font-size: 26px;
             font-weight: 800;
-            color: #9E1B1B;
+            color: #f4d03f;
             padding: 20px 12px;
             text-align: center;
             line-height: 1.4;
@@ -452,7 +407,7 @@
             color: #faf0e0;
             font-size: 26px;
             font-weight: bold;
-            text-shadow: 2px  ̶2px 0 #5e4d3d;
+            text-shadow: 2px 2px 0 #5e4d3d;
             border: 2px solid #8a7a6a;
             cursor: pointer;
             letter-spacing: 6px;
@@ -491,9 +446,9 @@
         }
 
         .new-scratch-btn {
-            background: #C9A227;
-            border: 2px solid #9E1B1B;
-            color: #fff;
+            background: #e6b422;
+            border: 2px solid #fbf3e4;
+            color: #8c1414;
             font-size: 22px;
             padding: 14px 16px;
             border-radius: 50px;
@@ -511,7 +466,7 @@
         }
         .scratch-footer {
             margin-top: 8px;
-            color: #8C5A2B;
+            color: #f3d9b0;
             font-size: 14px;
         }
 
@@ -522,11 +477,11 @@
             margin: 16px 0 4px;
         }
         .music-toggle {
-            background: #C9A227;
-            border: 2px solid #9E1B1B;
+            background: #b11a1a;
+            border: 2px solid #e6b422;
             border-radius: 50px;
             padding: 8px 20px;
-            color: #fff;
+            color: #fbf3e4;
             font-size: 18px;
             cursor: pointer;
         }
@@ -536,10 +491,12 @@
 
         .touch-hint {
             font-size: 13px;
-            color: #B8860B;
+            color: #b8860b;
             margin-top: 6px;
             text-align: center;
         }
+
+        /* （已移除未使用的落款样式：页面无对应 HTML 元素） */
 
         /* 特效容器 */
         .floating-heart {
@@ -556,137 +513,34 @@
         }
 
         @media (max-width: 400px) {
-            .invitation { padding: 22px 14px 24px; }
-            .xi-title { font-size: 38px; letter-spacing: 10px; text-indent: 10px; }
+            .invitation { padding: 20px 14px 24px; }
             .groom, .bride { font-size: 34px; }
             .person .role { font-size: 12px; letter-spacing: 2px; }
             .theme-badge { font-size: 12px; letter-spacing: 2px; }
             .gregorian { font-size: 24px; }
             .blessing-text { font-size: 22px; }
-            .corner { width: 64px; height: 64px; }
         }
     </style>
 </head>
 <body>
-    <!-- 背景花卉平铺图案 -->
-    <svg class="bg-floral" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <defs>
-            <pattern id="floral" width="92" height="92" patternUnits="userSpaceOnUse">
-                <g fill="#C9A227" opacity="0.16">
-                    <!-- 中央五瓣花 -->
-                    <g transform="translate(46 46)">
-                        <g transform="rotate(0)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(72)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(144)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(216)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <g transform="rotate(288)"><ellipse cx="0" cy="-16" rx="6" ry="12"/></g>
-                        <circle cx="0" cy="0" r="5" fill="#9E1B1B" opacity="0.5"/>
-                    </g>
-                    <!-- 四角小花 -->
-                    <circle cx="0" cy="0" r="3"/>
-                    <circle cx="92" cy="0" r="3"/>
-                    <circle cx="0" cy="92" r="3"/>
-                    <circle cx="92" cy="92" r="3"/>
-                </g>
-            </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#floral)"/>
-    </svg>
-
     <!-- 全局飘落特效层 -->
     <div id="global-effects"></div>
 
     <div class="invitation">
-        <!-- 四角花卉装饰 -->
-        <div class="corner corner-tl">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22, 70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-        <div class="corner corner-tr">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22,  ̶70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-        <div class="corner corner-bl">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22, 70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-        <div class="corner corner-br">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round">
-                    <path d="M6 6 C 34 10, 58 22, 70 58"/>
-                    <path d="M6 6 C 10 34, 22 58, 58 70"/>
-                    <path d="M28 14 C 40 8, 54 14, 50 28 C 47 38, 33 38, 30 26"/>
-                    <path d="M14 28 C 8 40, 14 54, 28 50 C 40 46, 38 32, 28 30"/>
-                </g>
-                <g fill="#C9A227">
-                    <circle cx="72" cy="60" r="5"/>
-                    <circle cx="60" cy="72" r="4"/>
-                    <circle cx="50" cy="30" r="3"/>
-                    <circle cx="30" cy="50" r="3"/>
-                </g>
-            </svg>
-        </div>
-
         <div class="top-ornament">
-            <i class="fas fa-leaf"></i>
+            <i class="fas fa-pepper"></i>
             <span>· 良 辰 ·</span>
             <i class="fas fa-leaf"></i>
         </div>
 
         <!-- 主题标识：红色圆点 + 结婚喜宴（状态 / 主题色标识） -->
-        <div style="text-align:center;">
-       
-   <div class="theme-badge"><i class="red-dot"></i>结婚喜宴</div>
+        <div class="theme-badge"><i class="red-dot"></i> 结婚喜宴</div>
+
+        <div class="title-main">
+            <h2>结婚喜宴</h2>
+            <div class="en-sub">WEDDING BANQUET</div>
         </div>
 
-        <!-- 吾家有喜 · 邀请文案（标题块） -->
-        <div class="invite-block">
-            <div class="xi-title">吾家有喜</div>
-            <div class="invite-divider">
-                <span class="line"></span>
-                <i class="fas fa-heart"></i>
-                <span class="line"></span>
-            </div>
-            <div class="invite-poem">有生之年 · 欣喜相逢</div>
-            <div class="invite-poem">佳期已定 · 敬备喜筵</div>
-            <div class="invite-line">诚挚邀请您参加我们的婚礼喜宴</div>
-        </div>
 
         <div class="couple-names">
             <div class="person">
@@ -718,7 +572,7 @@
             <a href="https://surl.amap.com/cNqr72qm3lW" class="nav-btn" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-map-signs"></i> 一键导航
             </a>
-            <div style="font-size:13px; margin-top:10px; color:#8C5A2B;">
+            <div style="font-size:13px; margin-top:10px; color:#f3d9b0;">
                 <i class="fas fa-car"></i> 点击唤醒高德地图
             </div>
         </div>
@@ -886,7 +740,7 @@
             function spawnFloatingHearts(clientX, clientY) {
                 const rect = cardInner.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
-  ̶              const centerY = rect.top + rect.height / 2;
+                const centerY = rect.top + rect.height / 2;
 
                 const symbols = ['❤️', '🧧', '✨', '🎉', '🌸', '🍀'];
                 const count = 10;
