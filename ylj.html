@@ -125,14 +125,26 @@ body::after {
     font-size: 12px; letter-spacing: 9px; color: var(--gold); opacity: 0.92;
 }
 .hero .names {
-    font-size: clamp(29px, 8.6vw, 39px); color: var(--cream);
-    letter-spacing: 3px; margin-top: 16px; line-height: 1.45;
+    display: flex; align-items: center; flex-wrap: wrap;
+    font-size: clamp(27px, 7.8vw, 37px); color: var(--cream);
+    letter-spacing: 4px; margin-top: 18px; line-height: 1.4;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.32);
 }
-.hero .names .dot {
-    font-style: normal; font-size: 12px; color: var(--gold);
-    margin: 0 12px; vertical-align: middle; opacity: 0.9;
+.hero .names .heart {
+    font-style: normal; font-size: 0.62em; line-height: 1;
+    margin: 0 0.34em; vertical-align: middle;
+    filter: drop-shadow(0 0 8px rgba(255, 96, 142, 0.75));
+    animation: beat 1.7s ease-in-out infinite;
+    transform-origin: center;
 }
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    12%      { transform: scale(1.25); }
+    24%      { transform: scale(1); }
+    36%      { transform: scale(1.16); }
+    48%      { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .hero .names .heart { animation: none; } }
 .hero .poem {
     margin-top: 24px; padding: 3px 0 3px 16px;
     border-left: 2px solid var(--gold-soft);
@@ -319,7 +331,7 @@ footer .blessing {
             </div>
             <div class="main">
                 <p class="eyebrow">结 婚 喜 宴</p>
-                <div class="names kai">魏永森<i class="dot">◆</i>叶湄敏</div>
+                <div class="names kai">魏永森<i class="heart">💗</i>叶湄敏</div>
                 <div class="poem kai">有生之年 · 欣喜相逢<br>佳期已定 · 敬备喜筵</div>
                 <p class="invite">诚挚邀请您参加我们的婚礼喜宴</p>
                 <div class="date">
