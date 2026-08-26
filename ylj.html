@@ -156,22 +156,6 @@ body::after {
 .hero .invite {
     margin-top: 22px; font-size: 14px; letter-spacing: 4px; color: #ffe9b0;
 }
-.hero .date { margin-top: 24px; }
-.hero .date .num {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 28px; letter-spacing: 2px; color: var(--cream);
-}
-.hero .date .num em { font-style: normal; color: var(--gold); margin: 0 6px; }
-.hero .date .lunar {
-    display: flex; flex-direction: column; align-items: flex-start;
-    gap: 3px; margin-top: 10px;
-}
-.hero .date .lunar span {
-    display: block; font-size: 13px; letter-spacing: 6px;
-    line-height: 1.5; color: var(--cream-soft);
-}
-.hero .date .lunar .wk { color: var(--gold); letter-spacing: 9px; }
-.hero .date .lunar .noon { color: var(--cream); font-size: 14.5px; letter-spacing: 4px; }
 
 /* ================= 分节 · 祥云 ================= */
 .orna { display: flex; align-items: center; gap: 18px; margin: 40px 0 0; }
@@ -237,11 +221,6 @@ footer .blessing {
     .hero .v-title { gap: 8px; }
     .hero .v-title .ch { width: 46px; height: 46px; font-size: 25px; border-radius: 7px; }
     .hero .v-title .ch.big { width: 58px; height: 58px; font-size: 38px; }
-    .hero .date .num { font-size: 25px; }
-    .hero .date .lunar { gap: 2px; margin-top: 8px; }
-    .hero .date .lunar span { font-size: 12px; letter-spacing: 5px; }
-    .hero .date .lunar .wk { letter-spacing: 7px; }
-    .hero .date .lunar .noon { font-size: 13.5px; letter-spacing: 3px; }
     .hero .branch { width: 124px; right: -10px; top: -8px; opacity: 0.72; }
     .info .watermark { font-size: 150px; right: -18px; }
     .block { gap: 18px; margin: 22px 0 4px; }
@@ -256,11 +235,6 @@ footer .blessing {
     .hero .v-title .ch { width: 42px; height: 42px; font-size: 22px; }
     .hero .v-title .ch.big { width: 54px; height: 54px; font-size: 34px; }
     .hero .names { font-size: clamp(22px, 7vw, 27px); letter-spacing: 2px; }
-    .hero .date .num { font-size: 22px; letter-spacing: 1px; }
-    .hero .date .lunar { gap: 1px; margin-top: 6px; }
-    .hero .date .lunar span { font-size: 11px; letter-spacing: 3px; }
-    .hero .date .lunar .wk { letter-spacing: 5px; }
-    .hero .date .lunar .noon { font-size: 12.5px; letter-spacing: 2px; }
     .hero .eyebrow { letter-spacing: 6px; }
     .hero .poem { font-size: 13.5px; letter-spacing: 2px; }
     .hero .invite { font-size: 12.5px; letter-spacing: 2px; }
@@ -390,14 +364,6 @@ footer .blessing {
                 <div class="names kai">魏永森<i class="heart">💗</i>叶湄敏</div>
                 <div class="poem kai">有生之年 · 欣喜相逢<br>佳期已定 · 敬备喜筵</div>
                 <p class="invite">诚挚邀请您参加我们的婚礼喜宴</p>
-                <div class="date">
-                    <span class="num">2026<em>·</em>10<em>·</em>01</span>
-                    <span class="lunar">
-                        <span>农历八月廿一</span>
-                        <span class="wk">星期四</span>
-                        <span class="noon">中午十二时 · 午宴</span>
-                    </span>
-                </div>
             </div>
         </div>
     </section>
@@ -411,6 +377,14 @@ footer .blessing {
     <!-- ======== 婚宴信息 · 疏密有致 ======== -->
     <section class="info">
         <div class="watermark" aria-hidden="true">囍</div>
+
+        <div class="block">
+            <span class="v-label kai">时&nbsp;间</span>
+            <div class="content">
+                <h3 class="kai">二〇二六年十月一日</h3>
+                <p class="sub">农历八月廿一<br>星期四<br>中午十二时 · 午宴</p>
+            </div>
+        </div>
 
         <div class="block">
             <span class="v-label kai">地&nbsp;点</span>
