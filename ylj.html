@@ -114,18 +114,14 @@ body::after {
     content: ""; position: absolute; inset: 3px;
     border: 1px solid rgba(156, 15, 28, 0.55); border-radius: 5px;
 }
-/* 奇偶交替：左倾右错 / 右倾左错，成歪扭之趣 */
 .hero .v-title .ch:nth-child(odd)  { transform: rotate(-5deg) translateX(-5px); }
 .hero .v-title .ch:nth-child(even) { transform: rotate(4deg)  translateX(5px); }
 .hero .v-title .ch.big {
     width: 68px; height: 68px; font-size: 46px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.42), 0 0 24px rgba(255, 215, 106, 0.35);
 }
-/* 右侧主栏 · 左对齐 */
 .hero .main { flex: 1; min-width: 0; text-align: left; padding-top: 4px; }
-.hero .eyebrow {
-    font-size: 12px; letter-spacing: 9px; color: var(--gold); opacity: 0.92;
-}
+.hero .eyebrow { font-size: 12px; letter-spacing: 9px; color: var(--gold); opacity: 0.92; }
 .hero .names {
     display: flex; align-items: center; flex-wrap: wrap;
     font-size: clamp(27px, 7.8vw, 37px); color: var(--cream);
@@ -153,9 +149,7 @@ body::after {
     font-size: 15px; letter-spacing: 3px; color: var(--cream);
     line-height: 2.15;
 }
-.hero .invite {
-    margin-top: 22px; font-size: 14px; letter-spacing: 4px; color: #ffe9b0;
-}
+.hero .invite { margin-top: 22px; font-size: 14px; letter-spacing: 4px; color: #ffe9b0; }
 
 /* ================= 分节 · 祥云 ================= */
 .orna { display: flex; align-items: center; gap: 18px; margin: 40px 0 0; }
@@ -194,21 +188,39 @@ body::after {
 }
 .nav:active { opacity: 0.7; }
 
-/* ================= 尾景 · 金山祥云 ================= */
-footer { margin-top: 72px; position: relative; text-align: right; }
-footer .branch-b {
-    position: absolute; left: -14px; bottom: 64px;
-    width: 120px; height: auto; color: var(--gold); opacity: 0.4;
-    transform: scaleX(-1); pointer-events: none;
+/* ================= 地点 block · 金山底层背景 ================= */
+.block-loc {
+    position: relative; overflow: hidden;
+    margin: 30px 0 0; padding: 24px 0 28px;
+    border-radius: 10px;
+    border: 1px solid rgba(240, 199, 94, 0.25);
+    background: rgba(110, 7, 14, 0.18);
 }
-footer .sun {
-    width: 40px; height: 40px; border-radius: 50%; margin-left: auto; margin-right: 34px;
-    background: radial-gradient(circle, rgba(240, 199, 94, 0.85), rgba(240, 199, 94, 0.4));
-    filter: blur(0.4px);
+/* 底层装饰 · 金山 / 日点 / 倒置梅枝 */
+.block-loc .bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.block-loc .bg .sun {
+    position: absolute; top: 10px; right: 24px;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(240, 199, 94, 0.7), rgba(240, 199, 94, 0.2));
+    filter: blur(0.5px);
 }
-footer .mountains { display: block; width: 100%; height: 104px; margin-top: -12px; }
-footer .blessing {
-    padding: 4px 6px 56px; font-size: 12.5px; color: var(--cream-soft);
+.block-loc .bg .branch-b {
+    position: absolute; left: -8px; bottom: -6px;
+    width: 110px; height: auto; color: var(--gold); opacity: 0.28;
+    transform: scaleX(-1);
+}
+.block-loc .bg .mountains {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 120px;
+    display: block;
+}
+/* 前景内容提至装饰之上 */
+.block-loc .v-label { position: relative; z-index: 1; }
+.block-loc .content { position: relative; z-index: 1; }
+
+/* ================= 尾景 · 祝福语 ================= */
+.blessing {
+    margin-top: 28px; padding: 0 6px 56px;
+    font-size: 12.5px; color: var(--cream-soft);
     letter-spacing: 4px; line-height: 2.5; text-align: right;
 }
 
@@ -224,10 +236,12 @@ footer .blessing {
     .hero .branch { width: 124px; right: -10px; top: -8px; opacity: 0.72; }
     .info .watermark { font-size: 150px; right: -18px; }
     .block { gap: 18px; margin: 22px 0 4px; }
-    footer .branch-b { width: 92px; bottom: 56px; }
+    .block-loc { margin: 24px 0 0; padding: 18px 0 22px; }
+    .block-loc .bg .sun { width: 30px; height: 30px; top: 8px; right: 16px; }
+    .block-loc .bg .branch-b { width: 88px; }
+    .block-loc .bg .mountains { height: 90px; }
 }
 
-/* 小屏手机（≤360px） */
 @media (max-width: 360px) {
     .wrap { padding: 26px 20px 0; }
     .hero-grid { gap: 14px; }
@@ -239,18 +253,18 @@ footer .blessing {
     .hero .poem { font-size: 13.5px; letter-spacing: 2px; }
     .hero .invite { font-size: 12.5px; letter-spacing: 2px; }
     .frame .c { width: 32px; height: 32px; }
+    .block-loc .bg .mountains { height: 76px; }
 }
 
-/* 超小屏（≤320px，如 iPhone SE 1代） */
 @media (max-width: 320px) {
     .wrap { padding: 22px 16px 0; }
     .hero-grid { gap: 12px; }
     .hero .v-title .ch { width: 38px; height: 38px; font-size: 20px; }
     .hero .v-title .ch.big { width: 48px; height: 48px; font-size: 30px; }
     .block h3 { font-size: 20px; }
+    .block-loc .bg .mountains { height: 64px; }
 }
 
-/* 平板 / 桌面：印章稍大更醒目 */
 @media (min-width: 600px) {
     .hero { padding-top: 34px; }
     .hero .v-title { gap: 12px; }
@@ -264,11 +278,9 @@ footer .blessing {
 <!-- ===== SVG 素材库（中式插画元素） ===== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-        <!-- 花瓣 -->
         <symbol id="petal" viewBox="0 0 16 16">
             <path d="M8 1 C12.4 4.2 13.2 9.4 8 15 C2.8 9.4 3.6 4.2 8 1 Z" fill="currentColor" opacity="0.8"/>
         </symbol>
-        <!-- 梅花 -->
         <symbol id="blossom" viewBox="-10 -10 20 20">
             <g fill="currentColor">
                 <path d="M0,-7 C2.2,-3 2.2,3 0,7 C-2.2,3 -2.2,-3 0,-7Z"/>
@@ -279,19 +291,16 @@ footer .blessing {
             </g>
             <circle r="1.8" fill="#9c0f1c"/>
         </symbol>
-        <!-- 边框角饰 -->
         <symbol id="corner" viewBox="0 0 60 60">
             <path d="M3,60 L3,16 Q3,3 16,3 L60,3" fill="none" stroke="currentColor" stroke-width="1.6"/>
             <path d="M9,60 L9,20 Q9,9 20,9 L60,9" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.55"/>
             <use href="#blossom" x="8" y="8" width="15" height="15"/>
         </symbol>
-        <!-- 祥云 -->
         <symbol id="cloud" viewBox="0 0 46 24">
             <path d="M5,20 Q3,12 11,12 Q12,4 21,6 Q28,1 32,8 Q41,7 40,15 Q45,17 41,20 Z"
                   fill="currentColor" opacity="0.9"/>
             <path d="M14,23 Q18,19 24,21 Q29,18 33,22 Z" fill="currentColor" opacity="0.5"/>
         </symbol>
-        <!-- 梅枝 -->
         <symbol id="branch" viewBox="0 0 200 170">
             <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.9">
                 <path d="M8,162 Q58,128 86,78 T152,16"/>
@@ -378,40 +387,44 @@ footer .blessing {
     <section class="info">
         <div class="watermark" aria-hidden="true">囍</div>
 
+        <!-- 时间 -->
         <div class="block">
             <span class="v-label kai">时&nbsp;间</span>
             <div class="content">
                 <h3 class="kai">二〇二六年十月一日</h3>
-                <p class="sub">农历八月廿一<br>星期四<br>中午十二时 · 午宴</p>
+                <p class="sub">农历八月廿一<br>星期四<br>中午12:00 · 午宴</p>
             </div>
         </div>
 
-        <div class="block">
+        <!-- 地点 · 金山底层背景 -->
+        <div class="block block-loc">
+            <!-- 底层装饰：金山 / 日点 / 倒置梅枝 -->
+            <div class="bg" aria-hidden="true">
+                <svg class="branch-b" viewBox="0 0 200 170"><use href="#branch"/></svg>
+                <div class="sun"></div>
+                <svg class="mountains" viewBox="0 0 800 140" preserveAspectRatio="none">
+                    <path d="M0,140 L0,88 Q110,26 230,84 T460,66 T800,98 L800,140 Z" fill="rgba(240,199,94,0.10)"/>
+                    <path d="M0,140 L0,112 Q190,58 390,106 T800,124 L800,140 Z" fill="rgba(240,199,94,0.16)"/>
+                </svg>
+            </div>
+            <!-- 前景内容 -->
             <span class="v-label kai">地&nbsp;点</span>
             <div class="content">
                 <h3 class="kai">永泰县长庆镇</h3>
-                <p class="sub">人民政府东 50 米 · 永泰县</p>
+                <p class="sub">长庆人民政府东50米 · 永泰县</p>
                 <a class="nav" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=永泰县长庆镇人民政府">位 置 导 航</a>
             </div>
         </div>
 
     </section>
 
-    <!-- ======== 尾景 · 金山 ======== -->
-    <footer>
-        <svg class="branch-b" viewBox="0 0 200 170" aria-hidden="true"><use href="#branch"/></svg>
-        <div class="sun" aria-hidden="true"></div>
-        <svg class="mountains" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0,140 L0,88 Q110,26 230,84 T460,66 T800,98 L800,140 Z" fill="rgba(240,199,94,0.10)"/>
-            <path d="M0,140 L0,112 Q190,58 390,106 T800,124 L800,140 Z" fill="rgba(240,199,94,0.16)"/>
-        </svg>
-        <p class="blessing">期待您的光临 · 共证良缘<br>愿与您共赴这场红妆之约</p>
-    </footer>
+    <!-- 尾景 · 祝福语 -->
+    <p class="blessing">期待您的光临 · 共证良缘<br>愿与您共赴这场红妆之约</p>
+
 </div>
 
 <script>
 (function () {
-    // ---------- 背景音乐 ----------
     var audio = document.getElementById('bgm');
     var icon = document.getElementById('musicIcon');
     var toggle = document.getElementById('musicToggle');
@@ -437,7 +450,6 @@ footer .blessing {
         e.stopPropagation();
         if (playing) { pauseBgm(); } else { playBgm(); }
     });
-    // 尝试自动播放；被拦截时等待首次触摸/点击
     document.addEventListener('DOMContentLoaded', function () {
         if (!audio) return;
         var p = audio.play();
