@@ -221,10 +221,10 @@ body::after {
 /* 仿微信「发送位置」消息卡片：地图缩略 + 名称/地址概要，整卡点击调起地图 */
 .wx-loc {
     position: relative; z-index: 1;
-    display: block; margin-top: 14px;
-    max-width: 320px; width: 100%;
+    display: block; margin-top: 12px;
+    max-width: 250px; width: 100%;
     border: 1px solid rgba(240, 199, 94, 0.5);
-    border-radius: 10px; overflow: hidden;
+    border-radius: 9px; overflow: hidden;
     background: #fdfbf3;
     box-shadow: 0 6px 22px rgba(60, 4, 8, 0.35);
     text-decoration: none;
@@ -232,36 +232,36 @@ body::after {
 }
 .wx-loc:active { opacity: 0.9; }
 /* 地图缩略区（SVG 手绘地图风，本地渲染永不空白） */
-.wx-loc .wx-map { position: relative; display: block; height: 114px; background: #efe9d8; }
+.wx-loc .wx-map { position: relative; display: block; height: 80px; background: #efe9d8; }
 .wx-loc .wx-map svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .wx-loc .wx-map svg.pin {
-    position: absolute; left: 50%; top: 49%; z-index: 2;
-    width: 32px; height: 38px;
+    position: absolute; left: 50%; top: 50%; z-index: 2;
+    width: 24px; height: 28px;
     transform: translate(-50%, -100%);
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
 }
 /* 「打开地图」角标 */
 .wx-loc .wx-open {
-    position: absolute; right: 10px; bottom: 12px; z-index: 2;
-    font-style: normal; font-size: 11px; letter-spacing: 3px; text-indent: 3px;
+    position: absolute; right: 8px; bottom: 8px; z-index: 2;
+    font-style: normal; font-size: 10px; letter-spacing: 2px; text-indent: 2px;
     color: #fff; background: rgba(200, 16, 46, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 999px; padding: 3px 11px;
+    border-radius: 999px; padding: 2px 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 /* 信息条 · 名称 + 详细地址 */
 .wx-loc .wx-info {
-    display: block; padding: 9px 14px 11px;
+    display: block; padding: 7px 12px 8px;
     background: linear-gradient(180deg, #fffdf6, #fbf3e0);
     border-top: 1px solid rgba(240, 199, 94, 0.4);
 }
 .wx-loc .wx-name {
-    display: block; font-size: 15.5px; font-weight: 700;
-    color: #5b3a1e; letter-spacing: 1.5px; line-height: 1.6;
+    display: block; font-size: 14px; font-weight: 700;
+    color: #5b3a1e; letter-spacing: 1px; line-height: 1.5;
 }
 .wx-loc .wx-addr {
-    display: block; font-style: normal; font-size: 12px;
-    color: #9a8a6a; letter-spacing: 1px; margin-top: 1px;
+    display: block; font-style: normal; font-size: 11px;
+    color: #9a8a6a; letter-spacing: 0.5px; margin-top: 1px;
 }
 
 /* ================= 尾景 · 祝福语 ================= */
@@ -287,8 +287,8 @@ body::after {
     .block-loc .bg .sun { width: 30px; height: 30px; top: 8px; right: 16px; }
     .block-loc .bg .branch-b { width: 88px; }
     .block-loc .bg .mountains { height: 90px; }
-    .wx-loc { max-width: 262px; }
-    .wx-loc .wx-map { height: 100px; }
+    .wx-loc { max-width: 220px; }
+    .wx-loc .wx-map { height: 70px; }
 }
 
 @media (max-width: 360px) {
@@ -303,8 +303,8 @@ body::after {
     .hero .invite { font-size: 12.5px; letter-spacing: 2px; }
     .frame .c { width: 32px; height: 32px; }
     .block-loc .bg .mountains { height: 76px; }
-    .wx-loc { max-width: 225px; }
-    .wx-loc .wx-map { height: 92px; }
+    .wx-loc { max-width: 200px; }
+    .wx-loc .wx-map { height: 62px; }
 }
 
 @media (max-width: 320px) {
@@ -315,8 +315,8 @@ body::after {
     .block h3 { font-size: 20px; }
     .block-loc .bg .mountains { height: 64px; }
     .block-loc .bg .sun { right: 2px; width: 22px; height: 22px; }
-    .wx-loc { max-width: 205px; }
-    .wx-loc .wx-map { height: 82px; }
+    .wx-loc { max-width: 185px; }
+    .wx-loc .wx-map { height: 56px; }
 }
 
 @media (min-width: 600px) {
@@ -472,7 +472,7 @@ body::after {
                 <!-- 微信式定位卡片：地图缩略 + 名称/地址概要，点击在微信内调起内置地图 -->
                 <a class="wx-loc" target="_blank" rel="noopener"
                    href="https://apis.map.qq.com/uri/v1/geocoder?coord=25.881349,118.589076&name=永泰县长庆镇人民政府&referer=ylj"
-                   aria-label="永泰县长庆镇人民政府，长庆人民政府东50米 · 永泰县，点击打开地图导航">
+                   aria-label="永泰县长庆镇，长庆人民政府东50米，点击打开地图导航">
                     <span class="wx-map" aria-hidden="true">
                         <svg class="bg" viewBox="0 0 400 172" preserveAspectRatio="xMidYMid slice">
                             <!-- 纸底 -->
@@ -510,8 +510,8 @@ body::after {
                         <em class="wx-open">打开地图</em>
                     </span>
                     <span class="wx-info">
-                        <b class="wx-name">永泰县长庆镇人民政府</b>
-                        <i class="wx-addr">长庆人民政府东50米 · 永泰县</i>
+                        <b class="wx-name">永泰县长庆镇</b>
+                        <i class="wx-addr">长庆人民政府东50米</i>
                     </span>
                 </a>
             </div>
