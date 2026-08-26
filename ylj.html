@@ -268,42 +268,32 @@ body::after {
 /* ================= 尾景 · 祝福语 ================= */
 .blessing {
     position: relative; z-index: 1; /* 提升至装饰层之上，避免被底图覆盖 */
-    margin-top: 32px; padding: 0 10px 56px;
-    text-align: right;
-}
-/* 祝福语装饰框 · 双重金线 + 四角金饰 + 顶花 */
-.blessing .blessing-frame {
-    position: relative; display: inline-block;
-    padding: 22px 44px 24px;
-    font-size: 12.5px; color: var(--cream-soft);
-    letter-spacing: 4px; line-height: 2.5; text-align: center;
-    border: 1px solid var(--gold);
+    margin-top: 36px; padding: 26px 14px 58px;
+    text-align: center;
+    font-size: 13px; color: var(--cream);
+    letter-spacing: 4px; line-height: 2.4;
     background:
-        radial-gradient(120% 170% at 50% 0%, rgba(240, 199, 94, 0.13), rgba(240, 199, 94, 0.03) 62%);
-    box-shadow:
-        inset 0 0 0 3px rgba(240, 199, 94, 0.16),
-        inset 0 0 0 4px rgba(240, 199, 94, 0.45),
-        0 4px 18px rgba(60, 4, 8, 0.28);
+        radial-gradient(72% 150% at 50% 50%, rgba(240, 199, 94, 0.16), rgba(240, 199, 94, 0.04) 72%, transparent);
 }
-/* 四角 L 形金角 */
-.blessing .blessing-frame i {
-    position: absolute; width: 13px; height: 13px;
-    border: 0 solid var(--gold);
+/* 上下渐隐金线（非边框，两端融于红底） */
+.blessing::before,
+.blessing::after {
+    content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+    width: min(76%, 430px); height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(240, 199, 94, 0.5) 20%, rgba(240, 199, 94, 0.5) 80%, transparent);
     pointer-events: none;
 }
-.blessing .blessing-frame i.tl { top: 5px; left: 5px; border-top-width: 2px; border-left-width: 2px; }
-.blessing .blessing-frame i.tr { top: 5px; right: 5px; border-top-width: 2px; border-right-width: 2px; }
-.blessing .blessing-frame i.bl { bottom: 5px; left: 5px; border-bottom-width: 2px; border-left-width: 2px; }
-.blessing .blessing-frame i.br { bottom: 5px; right: 5px; border-bottom-width: 2px; border-right-width: 2px; }
-/* 顶部小花点缀 */
-.blessing .blessing-frame .cap {
-    position: absolute; top: -11px; left: 50%;
-    width: 20px; height: 20px;
-    transform: translateX(-50%);
-    color: var(--gold);
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+.blessing::before { top: 10px; }
+.blessing::after { bottom: 40px; }
+/* 左右淡金祥云衬底 */
+.blessing .cl,
+.blessing .cr {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 58px; height: auto; color: var(--gold); opacity: 0.14;
     pointer-events: none;
 }
+.blessing .cl { left: 4px; }
+.blessing .cr { right: 4px; transform: translateY(-50%) scaleX(-1); }
 
 /* ================= 移动端微调 ================= */
 @media (max-width: 430px) {
@@ -323,7 +313,8 @@ body::after {
     .block-loc .bg .mountains { height: 90px; }
     .wx-loc { max-width: 220px; }
     .wx-loc .wx-map { height: 70px; }
-    .blessing .blessing-frame { padding: 18px 30px 20px; }
+    .blessing { padding: 22px 10px 50px; }
+    .blessing .cl, .blessing .cr { width: 44px; }
 }
 
 @media (max-width: 360px) {
@@ -340,8 +331,8 @@ body::after {
     .block-loc .bg .mountains { height: 76px; }
     .wx-loc { max-width: 200px; }
     .wx-loc .wx-map { height: 62px; }
-    .blessing { padding-bottom: 44px; }
-    .blessing .blessing-frame { padding: 16px 24px 18px; font-size: 12px; letter-spacing: 3px; }
+    .blessing { padding: 20px 8px 46px; font-size: 12.5px; letter-spacing: 3px; }
+    .blessing .cl, .blessing .cr { width: 36px; }
 }
 
 @media (max-width: 320px) {
@@ -354,7 +345,8 @@ body::after {
     .block-loc .bg .sun { right: 2px; width: 22px; height: 22px; }
     .wx-loc { max-width: 185px; }
     .wx-loc .wx-map { height: 56px; }
-    .blessing .blessing-frame { padding: 14px 20px 16px; }
+    .blessing { padding: 18px 6px 44px; }
+    .blessing .cl, .blessing .cr { width: 30px; }
 }
 
 @media (min-width: 600px) {
@@ -559,12 +551,9 @@ body::after {
 
     <!-- 尾景 · 祝福语 -->
     <p class="blessing">
-        <span class="blessing-frame kai">
-            <svg class="cap" viewBox="-10 -10 20 20" aria-hidden="true"><use href="#blossom"/></svg>
-            <i class="tl" aria-hidden="true"></i><i class="tr" aria-hidden="true"></i>
-            <i class="bl" aria-hidden="true"></i><i class="br" aria-hidden="true"></i>
-            期待您的光临 · 共证良缘<br>愿与您共赴这场红妆之约
-        </span>
+        <svg class="cl" viewBox="0 0 46 24" aria-hidden="true"><use href="#cloud"/></svg>
+        <svg class="cr" viewBox="0 0 46 24" aria-hidden="true"><use href="#cloud"/></svg>
+        期待您的光临 · 共证良缘<br>愿与您共赴这场红妆之约
     </p>
 
 </div>
