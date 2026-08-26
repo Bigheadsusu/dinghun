@@ -98,26 +98,28 @@ body::after {
 }
 .hero-grid { display: flex; gap: 30px; align-items: stretch; position: relative; }
 .hero .side { display: flex; flex-direction: column; align-items: center; gap: 20px; flex-shrink: 0; }
+/* 印章式竖排标题 · 左右歪扭错落 */
 .hero .v-title {
-    writing-mode: vertical-rl; font-size: 37px; font-weight: 700;
-    letter-spacing: 15px; color: var(--gold); line-height: 1.25;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    flex-shrink: 0;
 }
-.hero .v-title .big {
-    font-size: 1.5em; letter-spacing: 4px; line-height: 1;
-    color: #ffd76a; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
-}
-/* 印章 */
-.seal {
-    position: relative; width: 52px; height: 52px;
-    background: var(--gold); color: #9c0f1c; border-radius: 7px;
+.hero .v-title .ch {
+    position: relative; width: 54px; height: 54px;
+    background: var(--gold); color: #9c0f1c; border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 30px; transform: rotate(-3deg);
+    font-size: 30px; font-weight: 700; line-height: 1;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
-.seal::after {
+.hero .v-title .ch::after {
     content: ""; position: absolute; inset: 3px;
-    border: 1px solid rgba(156, 15, 28, 0.55); border-radius: 4px;
+    border: 1px solid rgba(156, 15, 28, 0.55); border-radius: 5px;
+}
+/* 奇偶交替：左倾右错 / 右倾左错，成歪扭之趣 */
+.hero .v-title .ch:nth-child(odd)  { transform: rotate(-5deg) translateX(-5px); }
+.hero .v-title .ch:nth-child(even) { transform: rotate(4deg)  translateX(5px); }
+.hero .v-title .ch.big {
+    width: 68px; height: 68px; font-size: 46px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.42), 0 0 24px rgba(255, 215, 106, 0.35);
 }
 /* 右侧主栏 · 左对齐 */
 .hero .main { flex: 1; min-width: 0; text-align: left; padding-top: 4px; }
@@ -226,11 +228,48 @@ footer .blessing {
     .frame { inset: 6px; }
     .frame .c { width: 40px; height: 40px; }
     .hero-grid { gap: 20px; }
-    .hero .v-title { font-size: 31px; letter-spacing: 11px; }
+    .hero .v-title { gap: 8px; }
+    .hero .v-title .ch { width: 46px; height: 46px; font-size: 25px; border-radius: 7px; }
+    .hero .v-title .ch.big { width: 58px; height: 58px; font-size: 38px; }
+    .hero .date .num { font-size: 25px; }
+    .hero .date .lunar { font-size: 12px; letter-spacing: 4px; }
     .hero .branch { width: 124px; right: -10px; top: -8px; opacity: 0.72; }
     .info .watermark { font-size: 150px; right: -18px; }
     .block { gap: 18px; margin: 40px 0; }
     footer .branch-b { width: 92px; bottom: 56px; }
+}
+
+/* 小屏手机（≤360px） */
+@media (max-width: 360px) {
+    .wrap { padding: 26px 20px 0; }
+    .hero-grid { gap: 14px; }
+    .hero .v-title { gap: 6px; }
+    .hero .v-title .ch { width: 42px; height: 42px; font-size: 22px; }
+    .hero .v-title .ch.big { width: 54px; height: 54px; font-size: 34px; }
+    .hero .names { font-size: clamp(22px, 7vw, 27px); letter-spacing: 2px; }
+    .hero .date .num { font-size: 22px; letter-spacing: 1px; }
+    .hero .date .lunar { font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+    .hero .eyebrow { letter-spacing: 6px; }
+    .hero .poem { font-size: 13.5px; letter-spacing: 2px; }
+    .hero .invite { font-size: 12.5px; letter-spacing: 2px; }
+    .frame .c { width: 32px; height: 32px; }
+}
+
+/* 超小屏（≤320px，如 iPhone SE 1代） */
+@media (max-width: 320px) {
+    .wrap { padding: 22px 16px 0; }
+    .hero-grid { gap: 12px; }
+    .hero .v-title .ch { width: 38px; height: 38px; font-size: 20px; }
+    .hero .v-title .ch.big { width: 48px; height: 48px; font-size: 30px; }
+    .block h3 { font-size: 20px; }
+}
+
+/* 平板 / 桌面：印章稍大更醒目 */
+@media (min-width: 600px) {
+    .hero { padding-top: 34px; }
+    .hero .v-title { gap: 12px; }
+    .hero .v-title .ch { width: 58px; height: 58px; font-size: 32px; }
+    .hero .v-title .ch.big { width: 74px; height: 74px; font-size: 50px; }
 }
 </style>
 </head>
@@ -326,8 +365,13 @@ footer .blessing {
         <svg class="branch" viewBox="0 0 200 170" aria-hidden="true"><use href="#branch"/></svg>
         <div class="hero-grid">
             <div class="side">
-                <h1 class="v-title kai">大<span class="big">囍</span>的日子</h1>
-                <div class="seal kai">囍</div>
+                <h1 class="v-title kai" aria-label="大囍的日子">
+                    <span class="ch">大</span>
+                    <span class="ch big">囍</span>
+                    <span class="ch">的</span>
+                    <span class="ch">日</span>
+                    <span class="ch">子</span>
+                </h1>
             </div>
             <div class="main">
                 <p class="eyebrow">结 婚 喜 宴</p>
@@ -336,7 +380,7 @@ footer .blessing {
                 <p class="invite">诚挚邀请您参加我们的婚礼喜宴</p>
                 <div class="date">
                     <span class="num">2026<em>·</em>10<em>·</em>01</span>
-                    <span class="lunar">农历八月廿一 · 星期四 · 中午十二时</span>
+                    <span class="lunar">农历八月廿一 · 星期四 · 中午十二时 · 午宴</span>
                 </div>
             </div>
         </div>
