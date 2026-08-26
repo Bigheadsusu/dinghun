@@ -192,16 +192,7 @@ body::after {
     font-size: 14px; color: var(--cream-soft);
     letter-spacing: 2px; line-height: 2.1; margin-top: 8px;
 }
-.nav {
-    display: inline-block; margin-top: 16px;
-    color: var(--gold); text-decoration: none;
-    font-size: 13px; letter-spacing: 5px; text-indent: 5px;
-    border-bottom: 1px solid var(--gold-soft); padding-bottom: 4px;
-}
-.nav:active { opacity: 0.7; }
-
-/* ================= 地点 block · 金山底层背景 ================= */
-.block-loc {
+/* ================= 地点 block · 金山底层背景 ================= */.block-loc {
     position: relative;
     margin: 30px 0 0; padding: 24px 0 28px;
 }
@@ -226,11 +217,50 @@ body::after {
 .block-loc .v-label { position: relative; z-index: 1; }
 .block-loc .content { position: relative; z-index: 1; }
 
-/* 内嵌定位地图（高德 URI → ditu.amap.com 可交互地图） */
-.block-loc .map {
-    display: block; width: 100%; height: 200px; margin-top: 16px;
-    border: 1px solid rgba(240, 199, 94, 0.4); border-radius: 8px;
-    background: #e9ecef;
+/* ============ 地点 · 微信式定位卡片 ============ */
+/* 仿微信「发送位置」消息卡片：地图缩略 + 名称/地址概要，整卡点击调起地图 */
+.wx-loc {
+    position: relative; z-index: 1;
+    display: block; margin-top: 18px;
+    border: 1px solid rgba(240, 199, 94, 0.5);
+    border-radius: 10px; overflow: hidden;
+    background: #fdfbf3;
+    box-shadow: 0 6px 22px rgba(60, 4, 8, 0.35);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.wx-loc:active { opacity: 0.9; }
+/* 地图缩略区（SVG 手绘地图风，本地渲染永不空白） */
+.wx-loc .wx-map { position: relative; display: block; height: 172px; background: #efe9d8; }
+.wx-loc .wx-map svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.wx-loc .wx-map svg.pin {
+    position: absolute; left: 50%; top: 49%; z-index: 2;
+    width: 32px; height: 38px;
+    transform: translate(-50%, -100%);
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
+}
+/* 「打开地图」角标 */
+.wx-loc .wx-open {
+    position: absolute; right: 10px; bottom: 12px; z-index: 2;
+    font-style: normal; font-size: 11px; letter-spacing: 3px; text-indent: 3px;
+    color: #fff; background: rgba(200, 16, 46, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px; padding: 3px 11px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+/* 信息条 · 名称 + 详细地址 */
+.wx-loc .wx-info {
+    display: block; padding: 9px 14px 11px;
+    background: linear-gradient(180deg, #fffdf6, #fbf3e0);
+    border-top: 1px solid rgba(240, 199, 94, 0.4);
+}
+.wx-loc .wx-name {
+    display: block; font-size: 15.5px; font-weight: 700;
+    color: #5b3a1e; letter-spacing: 1.5px; line-height: 1.6;
+}
+.wx-loc .wx-addr {
+    display: block; font-style: normal; font-size: 12px;
+    color: #9a8a6a; letter-spacing: 1px; margin-top: 1px;
 }
 
 /* ================= 尾景 · 祝福语 ================= */
@@ -256,7 +286,7 @@ body::after {
     .block-loc .bg .sun { width: 30px; height: 30px; top: 8px; right: 16px; }
     .block-loc .bg .branch-b { width: 88px; }
     .block-loc .bg .mountains { height: 90px; }
-    .block-loc .map { height: 160px; }
+    .wx-loc .wx-map { height: 150px; }
 }
 
 @media (max-width: 360px) {
@@ -271,7 +301,7 @@ body::after {
     .hero .invite { font-size: 12.5px; letter-spacing: 2px; }
     .frame .c { width: 32px; height: 32px; }
     .block-loc .bg .mountains { height: 76px; }
-    .block-loc .map { height: 136px; }
+    .wx-loc .wx-map { height: 140px; }
 }
 
 @media (max-width: 320px) {
@@ -281,7 +311,7 @@ body::after {
     .hero .v-title .ch.big { width: 48px; height: 48px; font-size: 30px; }
     .block h3 { font-size: 20px; }
     .block-loc .bg .mountains { height: 64px; }
-    .block-loc .map { height: 120px; }
+    .wx-loc .wx-map { height: 120px; }
 }
 
 @media (min-width: 600px) {
@@ -434,13 +464,51 @@ body::after {
             <span class="v-label kai">地&nbsp;点</span>
             <div class="content">
                 <h3 class="kai">永泰县长庆镇</h3>
-                <p class="sub">长庆人民政府东50米 · 永泰县</p>
-                <!-- 定位地图：高德 URI 可交互地图（微信内亦可直接浏览） -->
-                <iframe class="map" loading="lazy"
-                    src="https://uri.amap.com/marker?position=118.589076,25.881349&name=永泰县长庆镇人民政府"
-                    title="婚礼地点地图" aria-label="婚礼地点定位地图"></iframe>
-                <!-- 微信生态导航：腾讯地图 URI，微信内直接调起内置地图 -->
-                <a class="nav" target="_blank" rel="noopener" href="https://apis.map.qq.com/uri/v1/geocoder?coord=25.881349,118.589076&name=永泰县长庆镇人民政府&referer=ylj">打 开 地 图 导 航</a>
+                <!-- 微信式定位卡片：地图缩略 + 名称/地址概要，点击在微信内调起内置地图 -->
+                <a class="wx-loc" target="_blank" rel="noopener"
+                   href="https://apis.map.qq.com/uri/v1/geocoder?coord=25.881349,118.589076&name=永泰县长庆镇人民政府&referer=ylj"
+                   aria-label="永泰县长庆镇人民政府，长庆人民政府东50米 · 永泰县，点击打开地图导航">
+                    <span class="wx-map" aria-hidden="true">
+                        <svg class="bg" viewBox="0 0 400 172" preserveAspectRatio="xMidYMid slice">
+                            <!-- 纸底 -->
+                            <rect width="400" height="172" fill="#efe9d8"/>
+                            <!-- 河流 -->
+                            <path d="M-10,124 Q72,94 132,120 T262,122 T410,98" fill="none" stroke="#b9d2de" stroke-width="12" opacity="0.8"/>
+                            <path d="M-10,124 Q72,94 132,120 T262,122 T410,98" fill="none" stroke="#d9e9f0" stroke-width="5" opacity="0.95"/>
+                            <!-- 街区块 -->
+                            <rect x="16" y="24" width="76" height="52" rx="3" fill="#dbe1c2" opacity="0.95"/>
+                            <rect x="122" y="12" width="88" height="40" rx="3" fill="#e7ddbc" opacity="0.95"/>
+                            <rect x="240" y="28" width="66" height="46" rx="3" fill="#dbe1c2" opacity="0.9"/>
+                            <rect x="330" y="14" width="58" height="40" rx="3" fill="#e7ddbc" opacity="0.95"/>
+                            <rect x="58" y="142" width="82" height="26" rx="3" fill="#e7ddbc" opacity="0.9"/>
+                            <rect x="298" y="130" width="90" height="34" rx="3" fill="#dbe1c2" opacity="0.9"/>
+                            <!-- 主路（浅褐描边 + 白面） -->
+                            <path d="M0,84 H400" stroke="#d8cbaa" stroke-width="13"/>
+                            <path d="M0,84 H400" stroke="#fff" stroke-width="10"/>
+                            <path d="M200,0 V172" stroke="#d8cbaa" stroke-width="11"/>
+                            <path d="M200,0 V172" stroke="#fff" stroke-width="8"/>
+                            <!-- 支路 -->
+                            <path d="M0,52 H150" stroke="#fff" stroke-width="4" opacity="0.9"/>
+                            <path d="M270,52 H400" stroke="#fff" stroke-width="4" opacity="0.9"/>
+                            <path d="M96,0 V140" stroke="#fff" stroke-width="4" opacity="0.9"/>
+                            <path d="M318,84 V172" stroke="#fff" stroke-width="4" opacity="0.9"/>
+                            <!-- 地名标注 -->
+                            <text x="200" y="77" fill="#8a7a55" font-size="12" text-anchor="middle" opacity="0.85">长 庆 镇</text>
+                        </svg>
+                        <!-- 红色定位大头针 -->
+                        <svg class="pin" viewBox="0 0 32 38">
+                            <path d="M16 1 C7 1 1 8 1 15.8 C1 26.4 16 37 16 37 C16 37 31 26.4 31 15.8 C31 8 25 1 16 1 Z"
+                                  fill="#e63946" stroke="#fff" stroke-width="2"/>
+                            <circle cx="16" cy="15" r="5.4" fill="#fff"/>
+                            <circle cx="16" cy="15" r="2.3" fill="#e63946"/>
+                        </svg>
+                        <em class="wx-open">打开地图</em>
+                    </span>
+                    <span class="wx-info">
+                        <b class="wx-name">永泰县长庆镇人民政府</b>
+                        <i class="wx-addr">长庆人民政府东50米 · 永泰县</i>
+                    </span>
+                </a>
             </div>
         </div>
 
