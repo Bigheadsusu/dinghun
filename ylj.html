@@ -195,6 +195,7 @@ body::after {
 /* ================= 地点 block · 金山底层背景 ================= */.block-loc {
     position: relative;
     margin: 30px 0 0; padding: 24px 0 28px;
+    overflow: hidden; /* 约束装饰层，防止山体/梅枝溢出覆盖后续内容 */
 }
 /* 底层装饰 · 金山 / 日点 / 倒置梅枝（透明底，直接浮于页面红底） */
 .block-loc .bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -205,7 +206,7 @@ body::after {
     filter: blur(0.5px);
 }
 .block-loc .bg .branch-b {
-    position: absolute; left: -8px; bottom: -6px;
+    position: absolute; left: -8px; bottom: 0;
     width: 110px; height: auto; color: var(--gold); opacity: 0.28;
     transform: scaleX(-1);
 }
@@ -266,7 +267,8 @@ body::after {
 
 /* ================= 尾景 · 祝福语 ================= */
 .blessing {
-    margin-top: 28px; padding: 0 6px 56px;
+    position: relative; z-index: 1; /* 提升至装饰层之上，避免被底图覆盖 */
+    margin-top: 32px; padding: 0 6px 56px;
     font-size: 12.5px; color: var(--cream-soft);
     letter-spacing: 4px; line-height: 2.5; text-align: right;
 }
