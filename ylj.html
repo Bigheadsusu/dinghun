@@ -163,26 +163,32 @@ body::after {
 }
 .hero .date .num em { font-style: normal; color: var(--gold); margin: 0 6px; }
 .hero .date .lunar {
-    display: block; font-size: 13px; letter-spacing: 6px;
-    color: var(--cream-soft); margin-top: 8px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 3px; margin-top: 10px;
 }
+.hero .date .lunar span {
+    display: block; font-size: 13px; letter-spacing: 6px;
+    line-height: 1.5; color: var(--cream-soft);
+}
+.hero .date .lunar .wk { color: var(--gold); letter-spacing: 9px; }
+.hero .date .lunar .noon { color: var(--cream); font-size: 14.5px; letter-spacing: 4px; }
 
 /* ================= 分节 · 祥云 ================= */
-.orna { display: flex; align-items: center; gap: 18px; margin: 64px 0 4px; }
+.orna { display: flex; align-items: center; gap: 18px; margin: 40px 0 0; }
 .orna .l, .orna .r { flex: 1; height: 1px; }
 .orna .l { background: linear-gradient(90deg, transparent, var(--gold-soft)); }
 .orna .r { background: linear-gradient(90deg, var(--gold-soft), transparent); }
 .orna .cloud { width: 46px; height: 24px; color: var(--gold); flex-shrink: 0; }
 
 /* ================= 婚宴信息 · 疏密对比 ================= */
-.info { position: relative; padding: 30px 4px 0; }
+.info { position: relative; padding: 18px 4px 0; }
 .info .watermark {
     position: absolute; top: 22px; right: -16px;
     font-size: 200px; line-height: 1; color: rgba(240, 199, 94, 0.06);
     pointer-events: none; user-select: none;
     font-family: "KaiTi", "STKaiti", "楷体", serif;
 }
-.block { display: flex; gap: 24px; align-items: flex-start; margin: 48px 0; position: relative; }
+.block { display: flex; gap: 24px; align-items: flex-start; margin: 26px 0 6px; position: relative; }
 .block .v-label {
     writing-mode: vertical-rl; letter-spacing: 15px; text-indent: 3px;
     font-size: 13px; color: var(--gold);
@@ -232,10 +238,13 @@ footer .blessing {
     .hero .v-title .ch { width: 46px; height: 46px; font-size: 25px; border-radius: 7px; }
     .hero .v-title .ch.big { width: 58px; height: 58px; font-size: 38px; }
     .hero .date .num { font-size: 25px; }
-    .hero .date .lunar { font-size: 12px; letter-spacing: 4px; }
+    .hero .date .lunar { gap: 2px; margin-top: 8px; }
+    .hero .date .lunar span { font-size: 12px; letter-spacing: 5px; }
+    .hero .date .lunar .wk { letter-spacing: 7px; }
+    .hero .date .lunar .noon { font-size: 13.5px; letter-spacing: 3px; }
     .hero .branch { width: 124px; right: -10px; top: -8px; opacity: 0.72; }
     .info .watermark { font-size: 150px; right: -18px; }
-    .block { gap: 18px; margin: 40px 0; }
+    .block { gap: 18px; margin: 22px 0 4px; }
     footer .branch-b { width: 92px; bottom: 56px; }
 }
 
@@ -248,7 +257,10 @@ footer .blessing {
     .hero .v-title .ch.big { width: 54px; height: 54px; font-size: 34px; }
     .hero .names { font-size: clamp(22px, 7vw, 27px); letter-spacing: 2px; }
     .hero .date .num { font-size: 22px; letter-spacing: 1px; }
-    .hero .date .lunar { font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+    .hero .date .lunar { gap: 1px; margin-top: 6px; }
+    .hero .date .lunar span { font-size: 11px; letter-spacing: 3px; }
+    .hero .date .lunar .wk { letter-spacing: 5px; }
+    .hero .date .lunar .noon { font-size: 12.5px; letter-spacing: 2px; }
     .hero .eyebrow { letter-spacing: 6px; }
     .hero .poem { font-size: 13.5px; letter-spacing: 2px; }
     .hero .invite { font-size: 12.5px; letter-spacing: 2px; }
@@ -380,7 +392,11 @@ footer .blessing {
                 <p class="invite">诚挚邀请您参加我们的婚礼喜宴</p>
                 <div class="date">
                     <span class="num">2026<em>·</em>10<em>·</em>01</span>
-                    <span class="lunar">农历八月廿一 · 星期四 · 中午十二时 · 午宴</span>
+                    <span class="lunar">
+                        <span>农历八月廿一</span>
+                        <span class="wk">星期四</span>
+                        <span class="noon">中午十二时 · 午宴</span>
+                    </span>
                 </div>
             </div>
         </div>
